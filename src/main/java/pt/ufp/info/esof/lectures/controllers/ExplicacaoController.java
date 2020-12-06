@@ -6,11 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pt.ufp.info.esof.lectures.models.Aluno;
+import pt.ufp.info.esof.lectures.models.Cliente;
 import pt.ufp.info.esof.lectures.models.Explicacao;
-import pt.ufp.info.esof.lectures.models.Explicador;
-import pt.ufp.info.esof.lectures.repositories.AlunoRepository;
-import pt.ufp.info.esof.lectures.repositories.ExplicadorRepository;
+import pt.ufp.info.esof.lectures.models.Funcionario;
+import pt.ufp.info.esof.lectures.repositories.ClienteRepository;
+import pt.ufp.info.esof.lectures.repositories.FuncionarioRepository;
 
 import java.util.Optional;
 
@@ -18,26 +18,26 @@ import java.util.Optional;
 @RequestMapping("/explicacao")
 public class ExplicacaoController {
 
-    private final ExplicadorRepository explicadorRepository;
-    private final AlunoRepository alunoRepository;
+    private final FuncionarioRepository funcionarioRepository;
+    private final ClienteRepository clienteRepository;
 
     @Autowired
-    public ExplicacaoController(ExplicadorRepository explicadorRepository, AlunoRepository alunoRepository) {
-        this.explicadorRepository = explicadorRepository;
-        this.alunoRepository = alunoRepository;
+    public ExplicacaoController(FuncionarioRepository funcionarioRepository, ClienteRepository clienteRepository) {
+        this.funcionarioRepository = funcionarioRepository;
+        this.clienteRepository = clienteRepository;
     }
 
     @PostMapping
     public ResponseEntity<Explicacao> marcaAtendimento(@RequestBody Explicacao explicacao){
-        Optional<Explicador> optionalExplicador=explicadorRepository.findById(explicacao.getExplicador().getId());
-        Optional<Aluno> optionalAluno=alunoRepository.findById(explicacao.getAluno().getId());
+        Optional<Funcionario> optionalExplicador= funcionarioRepository.findById(explicacao.getFuncionario().getId());
+        Optional<Cliente> optionalAluno= clienteRepository.findById(explicacao.getCliente().getId());
         if(optionalAluno.isPresent()&&optionalExplicador.isPresent()){
-            Explicador explicador=optionalExplicador.get();
-            Aluno aluno=optionalAluno.get();
-            if(explicador.adicionarExplicacao(explicacao)!=null){
-                aluno.addExplicacao(explicacao);
-                explicadorRepository.save(explicador);
-                alunoRepository.save(aluno);
+            Funcionario funcionario =optionalExplicador.get();
+            Cliente cliente =optionalAluno.get();
+            if(funcionario.adicionarExplicacao(explicacao)!=null){
+                cliente.addExplicacao(explicacao);
+                funcionarioRepository.save(funcionario);
+                clienteRepository.save(cliente);
                 return ResponseEntity.ok(explicacao);
             }
         }

@@ -1,7 +1,6 @@
 package pt.ufp.info.esof.lectures.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,39 +15,39 @@ import java.util.stream.Collectors;
 @Setter
 @Entity
 @EqualsAndHashCode(callSuper = true)
-public class Explicador extends Utilizador{
+public class Funcionario extends Utilizador{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
     @JsonIgnore
     @ManyToMany(mappedBy = "explicadores")
-    private final List<Cadeira> cadeiras=new ArrayList<>();
+    private final List<Tarefa> tarefas =new ArrayList<>();
     @JsonIgnore
-    @OneToMany(mappedBy = "explicador",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "funcionario",cascade = CascadeType.ALL)
     private List<Disponibilidade> disponibilidades=new ArrayList<>();
     @JsonIgnore
-    @OneToMany(mappedBy = "explicador",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "funcionario",cascade = CascadeType.ALL)
     private final List<Explicacao> explicacoes=new ArrayList<>();
 
     @JsonProperty(value = "nomeCadeiras")
     public List<String> teste(){
-        return cadeiras.stream().map(Cadeira::getNome).collect(Collectors.toList());
+        return tarefas.stream().map(Tarefa::getNome).collect(Collectors.toList());
     }
 
     public Explicacao adicionarExplicacao(Explicacao explicacao){
         if(estaDisponivel(explicacao)&&!temMarcacaoPrevia(explicacao)){
             this.explicacoes.add(explicacao);
-            explicacao.setExplicador(this);
+            explicacao.setFuncionario(this);
             return explicacao;
         }
         return null;
     }
 
-    public void adicionaCadeira(Cadeira cadeira){
-        if(!this.cadeiras.contains(cadeira)){
-            this.cadeiras.add(cadeira);
-            cadeira.adicionaExplicador(this);
+    public void adicionaCadeira(Tarefa tarefa){
+        if(!this.tarefas.contains(tarefa)){
+            this.tarefas.add(tarefa);
+            tarefa.adicionaExplicador(this);
         }
     }
 
@@ -73,7 +72,7 @@ public class Explicador extends Utilizador{
     public void adicionaDisponibilidade(Disponibilidade disponibilidade){
         if(!this.disponibilidades.contains(disponibilidade)){
             this.disponibilidades.add(disponibilidade);
-            disponibilidade.setExplicador(this);
+            disponibilidade.setFuncionario(this);
         }
     }
 }

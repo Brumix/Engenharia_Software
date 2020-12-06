@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.DayOfWeek;
@@ -28,7 +27,7 @@ public class Disponibilidade {
 
     @ManyToOne
     @EqualsAndHashCode.Exclude
-    private Explicador explicador;
+    private Funcionario funcionario;
 
     protected boolean estaDisponivel(Explicacao explicacao){
 

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,9 +23,9 @@ public class Explicacao {
     private LocalDateTime hora;
 
     @ManyToOne
-    private Explicador explicador;
+    private Funcionario funcionario;
     @ManyToOne
-    private Aluno aluno;
+    private Cliente cliente;
 
     public boolean temMarcacaoPrevia(Explicacao explicacao){
         if(!explicacao.getHora().toLocalDate().equals(this.getHora().toLocalDate())){

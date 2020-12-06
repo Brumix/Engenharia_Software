@@ -1,66 +1,63 @@
 package pt.ufp.info.esof.lectures;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import pt.ufp.info.esof.lectures.models.*;
-import pt.ufp.info.esof.lectures.repositories.AlunoRepository;
-import pt.ufp.info.esof.lectures.repositories.CadeiraRepository;
-import pt.ufp.info.esof.lectures.repositories.ExplicadorRepository;
-import pt.ufp.info.esof.lectures.repositories.FaculdadeRepository;
+import pt.ufp.info.esof.lectures.repositories.ClienteRepository;
+import pt.ufp.info.esof.lectures.repositories.TarefaRepository;
+import pt.ufp.info.esof.lectures.repositories.FuncionarioRepository;
+import pt.ufp.info.esof.lectures.repositories.EmpressaRepository;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Collections;
 
 @Component
 public class Inicializacao implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
-    private ExplicadorRepository explicadorRepository;
+    private FuncionarioRepository funcionarioRepository;
     @Autowired
-    private AlunoRepository alunoRepository;
+    private ClienteRepository clienteRepository;
     @Autowired
-    private FaculdadeRepository faculdadeRepository;
+    private EmpressaRepository empressaRepository;
     @Autowired
-    private CadeiraRepository cadeiraRepository;
+    private TarefaRepository tarefaRepository;
 
     @SneakyThrows
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         System.out.println("\n\n\nInicializou\n\n\n");
 
-        Faculdade fct=new Faculdade();
+        Empressa fct=new Empressa();
         fct.setNome("FCT");
 
-        Curso engenhariaInformatica=new Curso();
+        Projecto engenhariaInformatica=new Projecto();
         engenhariaInformatica.setNome("Engenharia Informática");
 
-        Cadeira matematicaInformatica=new Cadeira();
+        Tarefa matematicaInformatica=new Tarefa();
         matematicaInformatica.setNome("Matemática");
 
-        Cadeira fisicaInformatica=new Cadeira();
+        Tarefa fisicaInformatica=new Tarefa();
         fisicaInformatica.setNome("Física");
 
-        Cadeira esof=new Cadeira();
+        Tarefa esof=new Tarefa();
         esof.setNome("Engenharia de Software");
 
         engenhariaInformatica.adicionaCadeira(matematicaInformatica);
         engenhariaInformatica.adicionaCadeira(fisicaInformatica);
         engenhariaInformatica.adicionaCadeira(esof);
 
-        Curso engenhariaCivil=new Curso();
+        Projecto engenhariaCivil=new Projecto();
         engenhariaCivil.setNome("Engenharia Civil");
 
-        Cadeira matematica=new Cadeira();
+        Tarefa matematica=new Tarefa();
         matematica.setNome("Matemática");
 
-        Cadeira fisica=new Cadeira();
+        Tarefa fisica=new Tarefa();
         fisica.setNome("Física");
 
         engenhariaCivil.adicionaCadeira(matematica);
@@ -69,10 +66,10 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         fct.adicionaCurso(engenhariaInformatica);
         fct.adicionaCurso(engenhariaCivil);
 
-        this.faculdadeRepository.save(fct);
+        this.empressaRepository.save(fct);
 
-        Explicador explicador=new Explicador();
-        explicador.setEmail("explicador@gmail.com");
+        Funcionario funcionario =new Funcionario();
+        funcionario.setEmail("explicador@gmail.com");
 
         Disponibilidade disponibilidade=new Disponibilidade();
 
@@ -80,26 +77,26 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         disponibilidade.setHoraInicio(LocalTime.of(8,0));
         disponibilidade.setHoraFim(disponibilidade.getHoraInicio().plusHours(3));
 
-        explicador.adicionaDisponibilidade(disponibilidade);
+        funcionario.adicionaDisponibilidade(disponibilidade);
 
         Explicacao explicacao=new Explicacao();
-        explicacao.setExplicador(explicador);
+        explicacao.setFuncionario(funcionario);
         explicacao.setHora(LocalDateTime.of(
                 LocalDate.now(),
                 LocalTime.of(8,0)
         ));
 
-        Aluno aluno=new Aluno();
-        this.alunoRepository.save(aluno);
+        Cliente cliente =new Cliente();
+        this.clienteRepository.save(cliente);
 
-        aluno.addExplicacao(explicacao);
-        explicador.adicionarExplicacao(explicacao);
+        cliente.addExplicacao(explicacao);
+        funcionario.adicionarExplicacao(explicacao);
 
-        explicador.adicionaCadeira(esof);
-        explicador.adicionaCadeira(matematicaInformatica);
+        funcionario.adicionaCadeira(esof);
+        funcionario.adicionaCadeira(matematicaInformatica);
 
-        this.explicadorRepository.save(explicador);
-        this.cadeiraRepository.save(esof);
-        this.cadeiraRepository.save(matematicaInformatica);
+        this.funcionarioRepository.save(funcionario);
+        this.tarefaRepository.save(esof);
+        this.tarefaRepository.save(matematicaInformatica);
     }
 }

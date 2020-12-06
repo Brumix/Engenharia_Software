@@ -14,18 +14,18 @@ import java.util.List;
 @Setter
 @Entity
 @EqualsAndHashCode(callSuper = true)
-public class Aluno extends Utilizador{
+public class Cliente extends Utilizador{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "aluno")
+    @OneToMany(mappedBy = "cliente")
     @JsonIgnore
     private final List<Explicacao> explicacoes=new ArrayList<>();
 
     public void addExplicacao(Explicacao explicacao){
         if(!this.explicacoes.contains(explicacao)){
             this.explicacoes.add(explicacao);
-            explicacao.setAluno(this);
+            explicacao.setCliente(this);
         }
     }
 }

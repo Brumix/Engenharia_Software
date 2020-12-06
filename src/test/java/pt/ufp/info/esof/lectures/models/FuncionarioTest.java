@@ -8,28 +8,28 @@ import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ExplicadorTest {
+class FuncionarioTest {
 
     @Test
     void adicionarExplicacao() {
-        Explicador explicador=new Explicador();
+        Funcionario funcionario =new Funcionario();
 
         Disponibilidade disponibilidade=new Disponibilidade();
         disponibilidade.setDiaDaSemana(LocalDate.now().getDayOfWeek());
         disponibilidade.setHoraInicio(LocalTime.of(8,0));
         disponibilidade.setHoraFim(LocalTime.of(9,0));
 
-        explicador.adicionaDisponibilidade(disponibilidade);
+        funcionario.adicionaDisponibilidade(disponibilidade);
 
-        assertEquals(0,explicador.getExplicacoes().size());
+        assertEquals(0, funcionario.getExplicacoes().size());
 
         Explicacao explicacaoComecaAntesTerminaDurante=new Explicacao();
         explicacaoComecaAntesTerminaDurante.setHora(LocalDateTime.of(
                 LocalDate.now(),
                 LocalTime.of(7,30)
         ));
-        explicador.adicionarExplicacao(explicacaoComecaAntesTerminaDurante);
-        assertEquals(0,explicador.getExplicacoes().size());
+        funcionario.adicionarExplicacao(explicacaoComecaAntesTerminaDurante);
+        assertEquals(0, funcionario.getExplicacoes().size());
 
         Explicacao explicacaoDiaSeguinte=new Explicacao();
         explicacaoDiaSeguinte.setHora(LocalDateTime.of(
@@ -37,8 +37,8 @@ class ExplicadorTest {
                 LocalTime.of(8,0)
         ));
 
-        explicador.adicionarExplicacao(explicacaoDiaSeguinte);
-        assertEquals(0,explicador.getExplicacoes().size());
+        funcionario.adicionarExplicacao(explicacaoDiaSeguinte);
+        assertEquals(0, funcionario.getExplicacoes().size());
 
         Explicacao explicacaoOk=new Explicacao();
         explicacaoOk.setHora(LocalDateTime.of(
@@ -46,11 +46,11 @@ class ExplicadorTest {
                 LocalTime.of(8,0)
         ));
 
-        explicador.adicionarExplicacao(explicacaoOk);
-        assertEquals(1,explicador.getExplicacoes().size());
+        funcionario.adicionarExplicacao(explicacaoOk);
+        assertEquals(1, funcionario.getExplicacoes().size());
 
-        explicador.adicionarExplicacao(explicacaoOk);
-        assertEquals(1,explicador.getExplicacoes().size());
+        funcionario.adicionarExplicacao(explicacaoOk);
+        assertEquals(1, funcionario.getExplicacoes().size());
 
     }
 }
