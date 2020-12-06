@@ -14,8 +14,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Entity
-@EqualsAndHashCode(callSuper = true)
-public class Funcionario extends Utilizador{
+public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
