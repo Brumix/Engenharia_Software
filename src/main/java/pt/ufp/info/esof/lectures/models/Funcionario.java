@@ -23,10 +23,6 @@ public class Funcionario extends Utilizador{
     @JsonIgnore
     @ManyToMany(mappedBy = "explicadores")
     private final List<Tarefa> tarefas =new ArrayList<>();
-    @JsonIgnore
-    @OneToMany(mappedBy = "funcionario",cascade = CascadeType.ALL)
-    private List<Disponibilidade> disponibilidades=new ArrayList<>();
-
 
     @JsonProperty(value = "nomeCadeiras")
     public List<String> teste(){
@@ -43,13 +39,4 @@ public class Funcionario extends Utilizador{
     }
 
 
-
-
-
-    public void adicionaDisponibilidade(Disponibilidade disponibilidade){
-        if(!this.disponibilidades.contains(disponibilidade)){
-            this.disponibilidades.add(disponibilidade);
-            disponibilidade.setFuncionario(this);
-        }
-    }
 }

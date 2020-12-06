@@ -71,15 +71,6 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         Funcionario funcionario =new Funcionario();
         funcionario.setEmail("explicador@gmail.com");
 
-        Disponibilidade disponibilidade=new Disponibilidade();
-
-        disponibilidade.setDiaDaSemana(LocalDate.now().getDayOfWeek());
-        disponibilidade.setHoraInicio(LocalTime.of(8,0));
-        disponibilidade.setHoraFim(disponibilidade.getHoraInicio().plusHours(3));
-
-        funcionario.adicionaDisponibilidade(disponibilidade);
-
-
         Cliente cliente =new Cliente();
         this.clienteRepository.save(cliente);
 

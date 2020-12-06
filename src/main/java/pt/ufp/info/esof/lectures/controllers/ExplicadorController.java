@@ -3,7 +3,6 @@ package pt.ufp.info.esof.lectures.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import pt.ufp.info.esof.lectures.models.Disponibilidade;
 import pt.ufp.info.esof.lectures.models.Funcionario;
 import pt.ufp.info.esof.lectures.repositories.FuncionarioRepository;
 
@@ -38,18 +37,4 @@ public class ExplicadorController {
         return ResponseEntity.badRequest().build();
     }
 
-    @PatchMapping("/{explicadorId}")
-    public ResponseEntity<Funcionario> adicionaDisponibilidade(@PathVariable Long explicadorId, @RequestBody Disponibilidade disponibilidade){
-        Optional<Funcionario> optionalExplicador=this.funcionarioRepository.findById(explicadorId);
-        if(optionalExplicador.isPresent()){
-            Funcionario funcionario =optionalExplicador.get();
-            int quantidadeDeDisponibilidadesAntes= funcionario.getDisponibilidades().size();
-            funcionario.adicionaDisponibilidade(disponibilidade);
-            int quantidadedeDisponibilidadesDepois= funcionario.getDisponibilidades().size();
-            if(quantidadeDeDisponibilidadesAntes!=quantidadedeDisponibilidadesDepois) {
-                return ResponseEntity.ok(funcionario);
-            }
-        }
-        return ResponseEntity.badRequest().build();
-    }
 }

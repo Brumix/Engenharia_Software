@@ -7,7 +7,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import pt.ufp.info.esof.lectures.models.Disponibilidade;
 import pt.ufp.info.esof.lectures.models.Funcionario;
 import pt.ufp.info.esof.lectures.repositories.FuncionarioRepository;
 
@@ -88,39 +87,5 @@ class FuncionarioControllerTest {
 
     }
 
-    @Test
-    public void adicionaDisponibilidade() throws Exception {
-
-        Funcionario funcionario =new Funcionario();
-        funcionario.setEmail("novoexplicador@mail.com");
-
-        Disponibilidade disponibilidade=new Disponibilidade();
-
-        disponibilidade.setDiaDaSemana(LocalDate.now().getDayOfWeek());
-        disponibilidade.setHoraInicio(LocalTime.of(8,0));
-        disponibilidade.setHoraFim(disponibilidade.getHoraInicio().plusHours(3));
-
-        String disponibilidadeJson=objectMapper.writeValueAsString(disponibilidade);
-
-        when(funcionarioRepository.findById(1L)).thenReturn(Optional.of(funcionario));
-
-        mockMvc.perform(
-                patch("/explicador/1")
-                        .content(disponibilidadeJson)
-                        .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(status().isOk());
-
-        mockMvc.perform(
-                patch("/explicador/1")
-                        .content(disponibilidadeJson)
-                        .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(status().isBadRequest());
-
-        mockMvc.perform(
-                patch("/explicador/2")
-                        .content(disponibilidadeJson)
-                        .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(status().isBadRequest());
-
-    }
+    
 }
