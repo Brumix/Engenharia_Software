@@ -18,14 +18,5 @@ public class Cliente extends Utilizador{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "cliente")
-    @JsonIgnore
-    private final List<Explicacao> explicacoes=new ArrayList<>();
 
-    public void addExplicacao(Explicacao explicacao){
-        if(!this.explicacoes.contains(explicacao)){
-            this.explicacoes.add(explicacao);
-            explicacao.setCliente(this);
-        }
-    }
 }

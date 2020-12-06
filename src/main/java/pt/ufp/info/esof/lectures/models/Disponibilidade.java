@@ -29,20 +29,5 @@ public class Disponibilidade {
     @EqualsAndHashCode.Exclude
     private Funcionario funcionario;
 
-    protected boolean estaDisponivel(Explicacao explicacao){
 
-        if(!explicacao.getHora().getDayOfWeek().equals(diaDaSemana)){
-            return false;
-        }
-        LocalTime horaInicioExplicacao=explicacao.getHora().toLocalTime();
-        LocalTime horaFimExplicacao=horaInicioExplicacao.plusHours(1);
-        return (
-                horaInicioExplicacao.equals(horaInicio)||
-                        horaInicioExplicacao.isAfter(horaInicio)
-                )&&(
-                        horaFimExplicacao.equals(horaFim)||
-                                horaFimExplicacao.isBefore(horaFim)
-                );
-
-    }
 }

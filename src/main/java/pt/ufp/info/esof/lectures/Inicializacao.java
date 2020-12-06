@@ -79,18 +79,10 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
         funcionario.adicionaDisponibilidade(disponibilidade);
 
-        Explicacao explicacao=new Explicacao();
-        explicacao.setFuncionario(funcionario);
-        explicacao.setHora(LocalDateTime.of(
-                LocalDate.now(),
-                LocalTime.of(8,0)
-        ));
 
         Cliente cliente =new Cliente();
         this.clienteRepository.save(cliente);
 
-        cliente.addExplicacao(explicacao);
-        funcionario.adicionarExplicacao(explicacao);
 
         funcionario.adicionaCadeira(esof);
         funcionario.adicionaCadeira(matematicaInformatica);

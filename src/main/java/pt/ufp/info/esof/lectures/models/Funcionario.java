@@ -26,23 +26,14 @@ public class Funcionario extends Utilizador{
     @JsonIgnore
     @OneToMany(mappedBy = "funcionario",cascade = CascadeType.ALL)
     private List<Disponibilidade> disponibilidades=new ArrayList<>();
-    @JsonIgnore
-    @OneToMany(mappedBy = "funcionario",cascade = CascadeType.ALL)
-    private final List<Explicacao> explicacoes=new ArrayList<>();
+
 
     @JsonProperty(value = "nomeCadeiras")
     public List<String> teste(){
         return tarefas.stream().map(Tarefa::getNome).collect(Collectors.toList());
     }
 
-    public Explicacao adicionarExplicacao(Explicacao explicacao){
-        if(estaDisponivel(explicacao)&&!temMarcacaoPrevia(explicacao)){
-            this.explicacoes.add(explicacao);
-            explicacao.setFuncionario(this);
-            return explicacao;
-        }
-        return null;
-    }
+
 
     public void adicionaCadeira(Tarefa tarefa){
         if(!this.tarefas.contains(tarefa)){
@@ -51,23 +42,9 @@ public class Funcionario extends Utilizador{
         }
     }
 
-    private boolean estaDisponivel(Explicacao explicacao){
-        for(Disponibilidade disponibilidade:disponibilidades){
-            if(disponibilidade.estaDisponivel(explicacao)){
-                return true;
-            }
-        }
-        return false;
-    }
 
-    private boolean temMarcacaoPrevia(Explicacao explicacao){
-        for(Explicacao explicacaoExistente:explicacoes){
-            if(explicacaoExistente.temMarcacaoPrevia(explicacao)){
-                return true;
-            }
-        }
-        return false;
-    }
+
+
 
     public void adicionaDisponibilidade(Disponibilidade disponibilidade){
         if(!this.disponibilidades.contains(disponibilidade)){

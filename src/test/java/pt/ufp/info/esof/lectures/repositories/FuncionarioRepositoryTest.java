@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import pt.ufp.info.esof.lectures.models.Cliente;
 import pt.ufp.info.esof.lectures.models.Disponibilidade;
-import pt.ufp.info.esof.lectures.models.Explicacao;
 import pt.ufp.info.esof.lectures.models.Funcionario;
 
 import java.time.LocalDate;
@@ -21,8 +20,6 @@ class FuncionarioRepositoryTest {
     private FuncionarioRepository funcionarioRepository;
     @Autowired
     private DisponibilidadeRepository disponibilidadeRepository;
-    @Autowired
-    private ExplicacaoRepository explicacaoRepository;
     @Autowired
     private ClienteRepository clienteRepository;
 
@@ -40,12 +37,6 @@ class FuncionarioRepositoryTest {
 
         funcionario.setDisponibilidades(Collections.singletonList(disponibilidade));
 
-        Explicacao explicacao=new Explicacao();
-        explicacao.setFuncionario(funcionario);
-        explicacao.setHora(LocalDateTime.of(
-                LocalDate.now(),
-                LocalTime.of(8,0)
-        ));
 
         Cliente cliente =new Cliente();
 
@@ -53,8 +44,6 @@ class FuncionarioRepositoryTest {
         clienteRepository.save(cliente);
         assertNotNull(cliente.getId());
 
-        cliente.addExplicacao(explicacao);
-        funcionario.adicionarExplicacao(explicacao);
 
         assertEquals(0, funcionarioRepository.count());
         assertEquals(0,disponibilidadeRepository.count());
@@ -69,8 +58,6 @@ class FuncionarioRepositoryTest {
         assertEquals(1,disponibilidadeRepository.count());
         assertTrue(funcionarioRepository.findByEmail(explicadorEmail).isPresent());
 
-
-        assertEquals(1,explicacaoRepository.count());
 
     }
 }
