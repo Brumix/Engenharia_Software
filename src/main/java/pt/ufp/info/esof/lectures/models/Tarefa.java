@@ -18,11 +18,11 @@ public class Tarefa {
     @ManyToOne
     private Projecto projecto;
     @ManyToMany
-    private List<Funcionario> explicadores=new ArrayList<>();
+    private List<Funcionario> funcionarios=new ArrayList<>();
 
     public void adicionaExplicador(Funcionario funcionario) {
-        if(!this.explicadores.contains(funcionario)){
-            this.explicadores.add(funcionario);
+        if(!this.funcionarios.contains(funcionario)){
+            this.funcionarios.add(funcionario);
         }
     }
 }

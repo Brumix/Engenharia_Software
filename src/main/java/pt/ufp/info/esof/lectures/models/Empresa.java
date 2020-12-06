@@ -10,18 +10,18 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Empressa {
+public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    @OneToMany(mappedBy = "empressa",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "empresa",cascade = CascadeType.ALL)
     private List<Projecto> projectos =new ArrayList<>();
 
-    public void adicionaCurso(Projecto projecto){
+    public void adicionaProjecto(Projecto projecto){
         if(!this.projectos.contains(projecto)){
             projectos.add(projecto);
-            projecto.setEmpressa(this);
+            projecto.setEmpresa(this);
         }
     }
 

@@ -18,10 +18,12 @@ public class Projecto {
     @OneToMany(mappedBy = "projecto",cascade = CascadeType.ALL)
     private List<Tarefa> tarefas =new ArrayList<>();
     @ManyToOne
-    private Empressa empressa;
+    private Empresa empresa;
+    @ManyToOne
+    private Cliente cliente;
 
-    public void adicionaCadeira(Tarefa tarefa){
-        if(!this.tarefas.contains(tarefa)){
+    public void adicionaTarefa(Tarefa tarefa){
+        if(!this.tarefas.contains(tarefa)) {
             tarefas.add(tarefa);
             tarefa.setProjecto(this);
         }

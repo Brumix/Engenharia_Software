@@ -6,14 +6,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import pt.ufp.info.esof.lectures.models.*;
-import pt.ufp.info.esof.lectures.repositories.ClienteRepository;
-import pt.ufp.info.esof.lectures.repositories.TarefaRepository;
-import pt.ufp.info.esof.lectures.repositories.FuncionarioRepository;
-import pt.ufp.info.esof.lectures.repositories.EmpressaRepository;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import pt.ufp.info.esof.lectures.repositories.*;
 
 @Component
 public class Inicializacao implements ApplicationListener<ContextRefreshedEvent> {
@@ -23,63 +16,101 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
     @Autowired
     private ClienteRepository clienteRepository;
     @Autowired
-    private EmpressaRepository empressaRepository;
+    private EmpresaRepository empresaRepository;
     @Autowired
     private TarefaRepository tarefaRepository;
+    @Autowired
+    private CargoRepository cargoRepository;
 
     @SneakyThrows
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         System.out.println("\n\n\nInicializou\n\n\n");
 
-        Empressa fct=new Empressa();
-        fct.setNome("FCT");
 
-        Projecto engenhariaInformatica=new Projecto();
-        engenhariaInformatica.setNome("Engenharia Informática");
+        Cargo gestor = new Cargo();
+        gestor.setNome("Bruno");
+        gestor.setSalarioHora(50);
 
-        Tarefa matematicaInformatica=new Tarefa();
-        matematicaInformatica.setNome("Matemática");
+        Cargo administrador = new Cargo();
+        administrador.setNome("Andre");
+        administrador.setSalarioHora(12);
 
-        Tarefa fisicaInformatica=new Tarefa();
-        fisicaInformatica.setNome("Física");
 
-        Tarefa esof=new Tarefa();
-        esof.setNome("Engenharia de Software");
+        Empresa fantastica = new Empresa();
+        fantastica.setNome("Fantastica");
 
-        engenhariaInformatica.adicionaCadeira(matematicaInformatica);
-        engenhariaInformatica.adicionaCadeira(fisicaInformatica);
-        engenhariaInformatica.adicionaCadeira(esof);
+        Empresa incrivel = new Empresa();
+        incrivel.setNome("Incrivel");
 
-        Projecto engenhariaCivil=new Projecto();
-        engenhariaCivil.setNome("Engenharia Civil");
 
-        Tarefa matematica=new Tarefa();
-        matematica.setNome("Matemática");
+        Projecto api = new Projecto();
+        api.setNome("Api");
 
-        Tarefa fisica=new Tarefa();
-        fisica.setNome("Física");
+        Projecto alojamentos = new Projecto();
+        alojamentos.setNome("Alojamentos");
 
-        engenhariaCivil.adicionaCadeira(matematica);
-        engenhariaCivil.adicionaCadeira(fisica);
+        Projecto progama_senhas = new Projecto();
+        progama_senhas.setNome("Progama de Senhas");
 
-        fct.adicionaCurso(engenhariaInformatica);
-        fct.adicionaCurso(engenhariaCivil);
 
-        this.empressaRepository.save(fct);
+        Tarefa digramaClasses = new Tarefa();
+        digramaClasses.setNome("Diagrama de Classes");
 
-        Funcionario funcionario =new Funcionario();
-        funcionario.setEmail("explicador@gmail.com");
+        Tarefa implementarCodigo = new Tarefa();
+        implementarCodigo.setNome("Implementar Codigo");
 
-        Cliente cliente =new Cliente();
+        Tarefa teste = new Tarefa();
+        teste.setNome("Testes");
+
+
+        Funcionario funcionario = new Funcionario();
+        funcionario.setName("Bruno");
+        funcionario.setEmail("bruno@gmail.com");
+
+        Funcionario funcionario1 = new Funcionario();
+        funcionario1.setName("Andre Batista");
+        funcionario1.setEmail("Abatista@gmail.com");
+
+
+        Cliente cliente = new Cliente();
+        cliente.setEmail("cliente@gmail.com");
+        cliente.setName("cliente");
+
+        // api.adicionaTarefa(digramaClasses);
+        // api.adicionaTarefa(implementarCodigo);
+        // alojamentos.adicionaTarefa(implementarCodigo);
+        // alojamentos.adicionaTarefa(teste);
+        // progama_senhas.adicionaTarefa(digramaClasses);
+        // progama_senhas.adicionaTarefa(teste);
+
+
+        gestor.adicionaFuncionario(funcionario);
+        administrador.adicionaFuncionario(funcionario1);
+
+
+        fantastica.adicionaProjecto(api);
+        fantastica.adicionaProjecto(alojamentos);
+        incrivel.adicionaProjecto(progama_senhas);
+
+       // cliente.adicionaProjecto(api);
+
+
+        this.cargoRepository.save(gestor);
+        this.cargoRepository.save(administrador);
+
+        this.empresaRepository.save(fantastica);
+        this.empresaRepository.save(incrivel);
+
         this.clienteRepository.save(cliente);
 
-
-        funcionario.adicionaCadeira(esof);
-        funcionario.adicionaCadeira(matematicaInformatica);
-
         this.funcionarioRepository.save(funcionario);
-        this.tarefaRepository.save(esof);
-        this.tarefaRepository.save(matematicaInformatica);
+        this.funcionarioRepository.save(funcionario1);
+
+        this.tarefaRepository.save(digramaClasses);
+        this.tarefaRepository.save(implementarCodigo);
+        this.tarefaRepository.save(teste);
+
+
     }
 }
