@@ -4,20 +4,21 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FuncionarioTest {
+class ProjetoTest {
 
     @Test
-    void consultarTarefasNaoConcluidas() {
+    void calcularPrecoProjeto() {
         Projeto projeto=new Projeto ();
         projeto.setId(1);
         projeto.setNome("projeto");
         projeto.setDuracao(2000);
+
         projeto.setPercentagemDeConclusao(20);
-        projeto.setPrecoFinal(5000);
         Tarefa tarefa=new Tarefa();
         tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(false);
+        projeto.getTarefas().add(tarefa);
         Funcionario funcionario=new Funcionario();
         funcionario.setNome("andre");
         funcionario.setCargo(Cargo.DEV_JR);
@@ -26,23 +27,22 @@ class FuncionarioTest {
         funcionario.getTarefas().add(tarefa);
         tarefa.setMyFuncionario(funcionario);
         tarefa.setMyProjeto(projeto);
-        assertEquals(1,funcionario.consultarTarefasNaoConcluidas().size());
 
+        assertEquals(1000, projeto.calcularPrecoProjeto());
 
     }
 
     @Test
-    void ditarTempo() {
+    void duracaoProjeto() {
         Projeto projeto=new Projeto ();
         projeto.setId(1);
         projeto.setNome("projeto");
-        projeto.setDuracao(2000);
-        projeto.setPercentagemDeConclusao(20);
-        projeto.setPrecoFinal(5000);
         Tarefa tarefa=new Tarefa();
         tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(false);
+        tarefa.setDuracao(100);
+        projeto.getTarefas().add(tarefa);
         Funcionario funcionario=new Funcionario();
         funcionario.setNome("andre");
         funcionario.setCargo(Cargo.DEV_JR);
@@ -51,23 +51,28 @@ class FuncionarioTest {
         funcionario.getTarefas().add(tarefa);
         tarefa.setMyFuncionario(funcionario);
         tarefa.setMyProjeto(projeto);
-        funcionario.DitarTempo(10,tarefa);
-        assertEquals(10,tarefa.getDuracao());
+
+        assertEquals(100, projeto.duracaoProjeto());
 
     }
 
     @Test
-    void atualizaPercentagemTarefa() {
+    void calcularPercentagemConclusao() {
         Projeto projeto=new Projeto ();
         projeto.setId(1);
         projeto.setNome("projeto");
-        projeto.setDuracao(2000);
-        projeto.setPercentagemDeConclusao(20);
-        projeto.setPrecoFinal(5000);
         Tarefa tarefa=new Tarefa();
         tarefa.setPreco(1000);
         tarefa.setNome("classes");
-        tarefa.setConcluida(false);
+        tarefa.setConcluida(true);
+        Tarefa tarefa1=new Tarefa();
+        tarefa1.setDuracao(100);
+        tarefa1.setPreco(1000);
+        tarefa1.setNome("classes1");
+        tarefa1.setConcluida(false);
+        tarefa1.setDuracao(100);
+        projeto.getTarefas().add(tarefa);
+        projeto.getTarefas().add(tarefa1);
         Funcionario funcionario=new Funcionario();
         funcionario.setNome("andre");
         funcionario.setCargo(Cargo.DEV_JR);
@@ -76,18 +81,36 @@ class FuncionarioTest {
         funcionario.getTarefas().add(tarefa);
         tarefa.setMyFuncionario(funcionario);
         tarefa.setMyProjeto(projeto);
-        funcionario.atualizaPercentagemTarefa(tarefa);
-        assertEquals(true,tarefa.getConcluida());
 
+        assertEquals(50, projeto.calcularPercentagemConclusao());
     }
 
     @Test
-    void getValorHora() {
+    void atualizarTarefa() {
+        Projeto projeto=new Projeto ();
+        projeto.setId(1);
+        projeto.setNome("projeto");
+        Tarefa tarefa=new Tarefa();
+        tarefa.setPreco(1000);
+        tarefa.setNome("classes");
+        tarefa.setConcluida(true);
+        Tarefa tarefa1=new Tarefa();
+        tarefa1.setDuracao(100);
+        tarefa1.setPreco(1000);
+        tarefa1.setNome("classes1");
+        tarefa1.setConcluida(false);
+        tarefa1.setDuracao(100);
+        projeto.getTarefas().add(tarefa);
+        projeto.getTarefas().add(tarefa1);
         Funcionario funcionario=new Funcionario();
         funcionario.setNome("andre");
         funcionario.setCargo(Cargo.DEV_JR);
         funcionario.setEmail("teste123@hotmail.com");
         funcionario.setPassword("algo");
-        assertEquals(10,funcionario.getValorHora());
+        funcionario.getTarefas().add(tarefa);
+        tarefa.setMyFuncionario(funcionario);
+        tarefa.setMyProjeto(projeto);
+        projeto.atualizarTarefa(tarefa1);
+        assertEquals(true,tarefa1.getConcluida());
     }
 }

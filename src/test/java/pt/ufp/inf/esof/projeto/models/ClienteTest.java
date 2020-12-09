@@ -3,8 +3,6 @@ package pt.ufp.inf.esof.projeto.models;
 import org.junit.jupiter.api.Test;
 
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 class ClienteTest {
 @Test
@@ -16,7 +14,7 @@ void consultarEstadoProjeto(){
     projeto.setNome("projeto");
     projeto.setDuracao(10);
     projeto.setId(1);
-    projeto.setMyCliente(cliente);
+    projeto.setCliente(cliente);
     projeto.setPercentagemDeConclusao((float) 20.0);
     projeto.setPrecoFinal(5000);
     cliente.getProjetos().add(projeto);
@@ -33,7 +31,7 @@ void consultarEstadoProjeto(){
         Projeto projeto=new Projeto ();
         projeto.setNome("projeto");
         projeto.setId(1);
-        projeto.setMyCliente(cliente);
+        projeto.setCliente(cliente);
         projeto.setDuracao(2000);
         projeto.setPercentagemDeConclusao(20);
         projeto.setPrecoFinal(5000);
@@ -49,7 +47,7 @@ void consultarEstadoProjeto(){
         Projeto projeto=new Projeto ();
         projeto.setNome("projeto");
         projeto.setId(1);
-        projeto.setMyCliente(cliente);
+        projeto.setCliente(cliente);
         projeto.setPercentagemDeConclusao(20);
         projeto.setPrecoFinal(5000);
         cliente.getProjetos().add(projeto);

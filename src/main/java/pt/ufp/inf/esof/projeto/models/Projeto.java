@@ -24,9 +24,9 @@ public class Projeto {
 
     private Integer precoFinal;
 
-    private float PercentagemDeConclusao;
+    private float percentagemDeConclusao;
 
-    private Cliente myCliente;
+    private Cliente cliente;
 
     /**
      * @element-type Tarefa
