@@ -23,8 +23,6 @@ void consultarEstadoProjeto(){
     assertEquals("projeto 20.0",cliente.consultarEstadoProjeto(projeto));
 
 
-
-
 }
 
     @Test
