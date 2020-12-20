@@ -50,4 +50,8 @@ public class Cliente {
       return null;
   }
 
+  public void adicionaProjecto(Projeto projeto){
+     this.projetos.add(projeto);
+  }
+
 }

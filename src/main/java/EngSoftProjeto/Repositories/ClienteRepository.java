@@ -6,8 +6,7 @@ import org.springframework.stereotype.Repository;
 
 
 
-@Repository //String pq chave primaria de Cliente é email pq é unico
+@Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
-   // Cliente findByProjetos(String projeto);
 }

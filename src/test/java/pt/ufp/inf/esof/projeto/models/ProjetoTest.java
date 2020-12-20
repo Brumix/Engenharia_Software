@@ -132,4 +132,13 @@ class ProjetoTest {
         projeto.atualizarTarefa(tarefa1);
         assertEquals(true, tarefa1.getConcluida());
     }
+
+    @Test
+    void adicionaClienteTest(){
+        Cliente cliente= new Cliente();
+        cliente.setNome("Bruno");
+        Projeto projeto= new Projeto();
+        projeto.adicionaCliente(cliente);
+        assertEquals(cliente,projeto.getCliente());
+    }
 }
