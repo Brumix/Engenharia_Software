@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class AdicionarProjectoClienteUseCase implements AdicionarProjectoClienteUseCaseI {
+public class AdicionarProjectoClienteUseCase {
     private final ClienteRepository clienteRepository;
 
     @Autowired
@@ -21,7 +21,6 @@ public class AdicionarProjectoClienteUseCase implements AdicionarProjectoCliente
 
 
 
-    @Override
     public Optional<Cliente> adicionaProjetos(Long clienteId, Projeto projeto) {
         Optional<Cliente> optionalCliente=this.clienteRepository.findById(clienteId);
         if(optionalCliente.isPresent()){

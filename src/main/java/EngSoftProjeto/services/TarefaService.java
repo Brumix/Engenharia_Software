@@ -1,6 +1,7 @@
 package EngSoftProjeto.services;
 
 
+import EngSoftProjeto.Models.Funcionario;
 import EngSoftProjeto.Models.Tarefa;
 
 import java.util.List;
@@ -12,6 +13,6 @@ public interface TarefaService {
 
     Optional<Tarefa> encontraId(Long id);
 
-    Optional<Tarefa> criaProjecto(Tarefa converter);
+    Optional<Funcionario> adicionaFuncionario(Funcionario converter);
 
 }

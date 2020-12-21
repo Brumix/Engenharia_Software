@@ -13,7 +13,4 @@ public interface FuncionarioService {
 
     Optional<Funcionario> encontraId(Long id);
 
-    Optional<Funcionario> criaCliente(Funcionario converter);
-
-    Optional<Funcionario> adicionaProjecto(Long funcionarioId, Tarefa tarefa);
 }

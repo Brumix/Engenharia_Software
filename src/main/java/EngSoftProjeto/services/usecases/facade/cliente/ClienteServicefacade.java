@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class ClienteServicefacade implements ClienteServiceFacadeI {
 
-    private final AdicionarProjectoClienteUseCaseI adicionarProjectoClienteUseCase ;
+    private final AdicionarProjectoClienteUseCase adicionarProjectoClienteUseCase ;
     private final CriarClienteUseCase criarClienteUseCase;
     private final MostrarPorIdUseCase mostrasPorIdUseCase;
     private final MostrarTodosOsClientesUseCase mostrarTodosOsClientesUseCase;

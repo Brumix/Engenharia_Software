@@ -3,6 +3,9 @@ package pt.ufp.inf.esof.projeto.models;
 import EngSoftProjeto.Models.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProjetoTest {
@@ -131,5 +134,12 @@ class ProjetoTest {
         tarefa.setProjeto(projeto);
         projeto.atualizarTarefa(tarefa1);
         assertEquals(true, tarefa1.getConcluida());
+    }
+    @Test
+    void adicionaClienteTest(){
+        Projeto projeto = new Projeto();
+        Cliente cliente= new Cliente();
+        projeto.adicionaCliente(cliente);
+        assertEquals(cliente, projeto.getCliente());
     }
 }

@@ -13,17 +13,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClienteTest {
 
     @Test
-    void testeClientId(){
+    void testeClientId() {
         Cliente cliente = new Cliente();
         cliente.setId(12L);
-        assertEquals(12,cliente.getId());
+        assertEquals(12, cliente.getId());
     }
 
     @Test
-    void testeClientName(){
+    void testeClientName() {
         Cliente cliente = new Cliente();
         cliente.setNome("bruno");
-        assertEquals("bruno",cliente.getNome());
+        assertEquals("bruno", cliente.getNome());
     }
 
     @Test
@@ -38,7 +38,7 @@ class ClienteTest {
         projeto.setCliente(cliente);
         projeto.setPercentagemDeConclusao((float) 20.0);
         projeto.setPrecoFinal(5000);
-        assertNull( cliente.consultarEstadoProjeto(projeto));
+        assertNull(cliente.consultarEstadoProjeto(projeto));
     }
 
 
@@ -60,7 +60,7 @@ class ClienteTest {
 
 
     @Test
-    void  consultarDuracaoProjetoNull(){
+    void consultarDuracaoProjetoNull() {
         Cliente cliente = new Cliente();
         cliente.setNome("andre");
         cliente.setId(1L);
@@ -104,8 +104,9 @@ class ClienteTest {
         projeto.setCliente(cliente);
         projeto.setPercentagemDeConclusao(20);
         projeto.setPrecoFinal(5000);
-        assertNull( cliente.ConsultarPrecoProjeto(projeto));
+        assertNull(cliente.ConsultarPrecoProjeto(projeto));
     }
+
     @Test
     void consultarPrecoProjeto() {
         Cliente cliente = new Cliente();
@@ -121,5 +122,11 @@ class ClienteTest {
         assertEquals("projeto 5000", cliente.ConsultarPrecoProjeto(projeto));
     }
 
-
+    @Test
+    void adicionaProjetoTest() {
+        Cliente cliente = new Cliente();
+        Projeto projeto = new Projeto();
+        projeto.adicionaCliente(cliente);
+        assertEquals(cliente, projeto.getCliente());
+    }
 }
