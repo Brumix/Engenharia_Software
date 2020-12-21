@@ -61,8 +61,8 @@ public class Projeto {
       if(tar.getNome().equals(tarefa.getNome())) tar.setConcluida(true);
     }
   }
-
   public void adicionaCliente(Cliente cliente){
     this.setCliente(cliente);
   }
+
 }

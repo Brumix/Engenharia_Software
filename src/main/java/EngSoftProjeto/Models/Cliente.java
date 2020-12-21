@@ -51,7 +51,7 @@ public class Cliente {
   }
 
   public void adicionaProjecto(Projeto projeto){
-     this.projetos.add(projeto);
+    this.projetos.add(projeto);
   }
 
 }
