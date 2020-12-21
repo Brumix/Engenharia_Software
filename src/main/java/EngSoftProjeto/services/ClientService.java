@@ -1,9 +1,19 @@
 package EngSoftProjeto.services;
 
-import org.springframework.stereotype.Service;
+import EngSoftProjeto.Models.Cliente;
+import EngSoftProjeto.Models.Projeto;
+
+import java.util.List;
+import java.util.Optional;
 
 
-@Service
 public interface ClientService {
 
+    List<Cliente> encontraTodos();
+
+    Optional<Cliente> encontraId(Long id);
+
+    Optional<Cliente> criaCliente(Cliente converter);
+
+    Optional<Cliente> adicionaProjecto(Long clienteId, Projeto projecto);
 }

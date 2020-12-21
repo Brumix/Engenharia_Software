@@ -62,4 +62,7 @@ public class Projeto {
     }
   }
 
+  public void adicionaCliente(Cliente cliente){
+    this.setCliente(cliente);
+  }
 }
