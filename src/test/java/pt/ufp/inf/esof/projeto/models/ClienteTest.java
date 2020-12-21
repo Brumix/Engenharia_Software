@@ -1,5 +1,6 @@
 package pt.ufp.inf.esof.projeto.models;
 
+<<<<<<< HEAD
 import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Models.Projeto;
 import org.junit.jupiter.api.Test;
@@ -84,11 +85,45 @@ class ClienteTest {
         Projeto projeto = new Projeto();
         projeto.setNome("projeto");
         projeto.setId(1L);
+=======
+import org.junit.jupiter.api.Test;
+
+
+import static org.junit.jupiter.api.Assertions.*;
+class ClienteTest {
+@Test
+void consultarEstadoProjeto(){
+    Cliente cliente=new Cliente();
+    cliente.setNome("andre");
+    cliente.setId(1);
+    Projeto projeto=new Projeto ();
+    projeto.setNome("projeto");
+    projeto.setDuracao(10);
+    projeto.setId(1);
+    projeto.setCliente(cliente);
+    projeto.setPercentagemDeConclusao((float) 20.0);
+    projeto.setPrecoFinal(5000);
+    cliente.getProjetos().add(projeto);
+    assertEquals("projeto 20.0",cliente.consultarEstadoProjeto(projeto));
+
+
+}
+
+    @Test
+    void consultarDuracaoProjeto() {
+        Cliente cliente=new Cliente();
+        cliente.setNome("andre");
+        cliente.setId(1);
+        Projeto projeto=new Projeto ();
+        projeto.setNome("projeto");
+        projeto.setId(1);
+>>>>>>> 7c95394a7f6115ceaa38553fdc1a086196c6b9b4
         projeto.setCliente(cliente);
         projeto.setDuracao(2000);
         projeto.setPercentagemDeConclusao(20);
         projeto.setPrecoFinal(5000);
         cliente.getProjetos().add(projeto);
+<<<<<<< HEAD
         assertEquals("projeto 2000", cliente.consultarDuracaoProjeto(projeto));
     }
 
@@ -105,20 +140,33 @@ class ClienteTest {
         projeto.setPercentagemDeConclusao(20);
         projeto.setPrecoFinal(5000);
         assertNull(cliente.ConsultarPrecoProjeto(projeto));
+=======
+        assertEquals("projeto 2000",cliente.consultarDuracaoProjeto(projeto));
+>>>>>>> 7c95394a7f6115ceaa38553fdc1a086196c6b9b4
     }
 
     @Test
     void consultarPrecoProjeto() {
+<<<<<<< HEAD
         Cliente cliente = new Cliente();
         cliente.setNome("andre");
         cliente.setId(1L);
         Projeto projeto = new Projeto();
         projeto.setNome("projeto");
         projeto.setId(1L);
+=======
+        Cliente cliente=new Cliente();
+        cliente.setNome("andre");
+        cliente.setId(1);
+        Projeto projeto=new Projeto ();
+        projeto.setNome("projeto");
+        projeto.setId(1);
+>>>>>>> 7c95394a7f6115ceaa38553fdc1a086196c6b9b4
         projeto.setCliente(cliente);
         projeto.setPercentagemDeConclusao(20);
         projeto.setPrecoFinal(5000);
         cliente.getProjetos().add(projeto);
+<<<<<<< HEAD
         assertEquals("projeto 5000", cliente.ConsultarPrecoProjeto(projeto));
     }
 
@@ -135,5 +183,8 @@ class ClienteTest {
         projetos.add(projeto1);
         projetos.add(projeto2);
         assertEquals(projetos, cliente.getProjetos());
+=======
+        assertEquals("projeto 5000",cliente.ConsultarPrecoProjeto(projeto));
+>>>>>>> 7c95394a7f6115ceaa38553fdc1a086196c6b9b4
     }
 }
