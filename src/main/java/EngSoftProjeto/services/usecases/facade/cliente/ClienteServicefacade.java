@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ClienteServicefacade implements ClientService {
+public class ClienteServicefacade implements ClienteServiceFacadeI {
 
-    private final AdicionarProjectoClienteUseCase adicionarProjectoClienteUseCase ;
+    private final AdicionarProjectoClienteUseCaseI adicionarProjectoClienteUseCase ;
     private final CriarClienteUseCase criarClienteUseCase;
     private final MostrarPorIdUseCase mostrasPorIdUseCase;
     private final MostrarTodosOsClientesUseCase mostrarTodosOsClientesUseCase;
@@ -36,7 +36,7 @@ public class ClienteServicefacade implements ClientService {
 
     @Override
     public Optional<Cliente> criaCliente(Cliente converter) {
-        return criarClienteUseCase.createExplicador(converter);
+        return criarClienteUseCase.criarcliente(converter);
     }
 
     @Override

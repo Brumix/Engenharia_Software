@@ -23,7 +23,7 @@ public class CriarClienteUseCase {
     }
 
 
-    public Optional<Cliente> createExplicador(Cliente cliente) {
+    public Optional<Cliente> criarcliente(Cliente cliente) {
         Optional<Cliente> optionalcliente = clienteRepository.findById(cliente.getId());//email mudar
         if (optionalcliente.isEmpty()) {
             clienteRepository.save(cliente);
