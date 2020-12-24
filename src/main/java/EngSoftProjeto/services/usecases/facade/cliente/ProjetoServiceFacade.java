@@ -15,24 +15,20 @@ public class ProjetoServiceFacade implements ProjetoServiceFacadeI {
     private final CriarProjetoUseCase criarProjetoUseCase;
     private final MostrarPorIdClienteUseCase mostrasPorIdUseCase;
     private final MostraTodosProjetoUseCase mostrarTodosProjetosUseCase;
+    private final MostraClientePorPojetoUseCase mostraClientePorPojetoUseCase;
+    private final MostraTarefaPorPojetoUseCase mostraTarefaPorPojetoUseCase;
 
 
-    public ProjetoServiceFacade(AdicionaTarefaProjetoUseCase adicionaTarefaProjetoUseCase, CriarProjetoUseCase criarProjetoUseCase, MostrarPorIdClienteUseCase mostrasPorIdUseCase, MostraTodosProjetoUseCase mostrarTodosProjetosUseCase) {
+    public ProjetoServiceFacade(AdicionaTarefaProjetoUseCase adicionaTarefaProjetoUseCase, CriarProjetoUseCase criarProjetoUseCase, MostrarPorIdClienteUseCase mostrasPorIdUseCase, MostraTodosProjetoUseCase mostrarTodosProjetosUseCase, MostraClientePorPojetoUseCase mostraClientePorPojetoUseCase, MostraTarefaPorPojetoUseCase mostraTarefaPorPojetoUseCase) {
         this.adicionaTarefaProjetoUseCase = adicionaTarefaProjetoUseCase;
         this.criarProjetoUseCase = criarProjetoUseCase;
         this.mostrasPorIdUseCase = mostrasPorIdUseCase;
         this.mostrarTodosProjetosUseCase = mostrarTodosProjetosUseCase;
+        this.mostraClientePorPojetoUseCase = mostraClientePorPojetoUseCase;
+        this.mostraTarefaPorPojetoUseCase = mostraTarefaPorPojetoUseCase;
     }
 
-    @Override
-    public List<Tarefa> listaTarefasPorPojeto(Projeto projeto) {
-        return null;
-    }
 
-    @Override
-    public List<Cliente> listaClientePorPojeto(Projeto projeto) {
-        return null;
-    }
 
     @Override
     public List<Projeto> encontraTodos() {
@@ -52,5 +48,15 @@ public class ProjetoServiceFacade implements ProjetoServiceFacadeI {
     @Override
     public Optional<Projeto> adicionaTarefaProjecto(Long projetoId, Tarefa tarefa) {
         return adicionaTarefaProjetoUseCase.adicionaTarefa(projetoId,tarefa);
+    }
+
+    @Override
+    public List<Tarefa> mostraTarefasPorPojeto(Projeto projeto){
+        return mostraTarefaPorPojetoUseCase.mostraTarefasPorPojeto(projeto);
+    }
+
+    @Override
+    public Optional<Cliente> mostraClientePorPojeto(Projeto projeto){
+        return mostraClientePorPojetoUseCase.mostraClientePorPojeto(projeto);
     }
 }

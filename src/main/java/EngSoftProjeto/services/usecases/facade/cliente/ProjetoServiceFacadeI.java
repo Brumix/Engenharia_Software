@@ -8,11 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProjetoServiceFacadeI {
-
-    List<Tarefa> listaTarefasPorPojeto(Projeto projeto);//listar projectos de um dado projeto
-
-    List<Cliente> listaClientePorPojeto(Projeto projeto);
-
     List<Projeto> encontraTodos();
 
     Optional<Cliente> encontraId(Long id);
@@ -20,4 +15,8 @@ public interface ProjetoServiceFacadeI {
     Optional<Projeto> criarProjeto(Projeto converter);
 
     Optional<Projeto> adicionaTarefaProjecto(Long projetoId, Tarefa tarefa);
+
+    List<Tarefa> mostraTarefasPorPojeto(Projeto projeto);
+
+    Optional<Cliente> mostraClientePorPojeto(Projeto projeto);
 }

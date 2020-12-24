@@ -7,11 +7,15 @@ import EngSoftProjeto.Models.Tarefa;
 import EngSoftProjeto.Repositories.ProjetoRepository;
 import EngSoftProjeto.Repositories.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
 public class CriarProjetoUseCase {
     private final TarefaRepository tarefaRepository;
     private final ProjetoRepository projetoRepository;
