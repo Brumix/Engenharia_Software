@@ -26,7 +26,7 @@ public class AdicionarProjectoClienteUseCase {
         if(optionalCliente.isPresent()){
            Cliente cliente=optionalCliente.get();
             int quantidadeDeDisponibilidadesAntes=cliente.getProjetos().size();
-            cliente.adicionaProjecto(projeto);
+            cliente.adicionarProjeto(projeto);
             int quantidadedeDisponibilidadesDepois=cliente.getProjetos().size();
             if(quantidadeDeDisponibilidadesAntes!=quantidadedeDisponibilidadesDepois) {
                 return Optional.of(cliente);

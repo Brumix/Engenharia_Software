@@ -1,6 +1,6 @@
 package EngSoftProjeto.services;
 
-import EngSoftProjeto.Models.Cliente;
+
 import EngSoftProjeto.Models.Projeto;
 import EngSoftProjeto.Models.Tarefa;
 

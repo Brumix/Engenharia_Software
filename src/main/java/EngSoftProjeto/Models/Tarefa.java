@@ -29,5 +29,4 @@ public class Tarefa {
   @ManyToOne
   private Projeto projeto;
 
-
 }

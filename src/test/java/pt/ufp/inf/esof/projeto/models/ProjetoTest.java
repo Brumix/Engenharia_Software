@@ -139,7 +139,7 @@ class ProjetoTest {
     void adicionaClienteTest(){
         Projeto projeto = new Projeto();
         Cliente cliente= new Cliente();
-        projeto.adicionaCliente(cliente);
+        projeto.setCliente(cliente);
         assertEquals(cliente, projeto.getCliente());
     }
 }

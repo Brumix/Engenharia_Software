@@ -32,7 +32,7 @@ public class CriarClienteUseCase {
                 Optional<Projeto> optionalProjeto = projetoRepository.findById(projeto.getId());//nome mudar
                 if (optionalProjeto.isPresent()) {
                     projetos.add(projeto);
-                    projeto.adicionaCliente(cliente);
+                    projeto.setCliente(cliente);
                     projetoRepository.save(optionalProjeto.get());
                 }
             });
