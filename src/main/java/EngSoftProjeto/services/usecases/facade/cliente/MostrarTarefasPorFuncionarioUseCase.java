@@ -4,10 +4,12 @@ import EngSoftProjeto.Models.Funcionario;
 import EngSoftProjeto.Models.Projeto;
 import EngSoftProjeto.Models.Tarefa;
 import EngSoftProjeto.Repositories.TarefaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class MostrarTarefasPorFuncionarioUseCase {
 
 

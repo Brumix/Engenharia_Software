@@ -35,12 +35,12 @@ public class FuncionarioServiceFacade implements FuncionarioServiceFacadeI {
 
     @Override
     public Optional<Funcionario> criaFuncionario(Funcionario funcionario){
-        return  criaFuncionario(funcionario);
+        return  criarFuncionarioUseCase.criarfuncionario(funcionario);
     }
 
     @Override
     public List<Tarefa> mostrarTarefasorFuncionario(Funcionario funcionario){
-        return mostrarTarefasorFuncionario(funcionario);
+        return mostrarTarefasPorFuncionarioUseCase.mostraTarefasPorPojeto(funcionario);
     }
 
 }
