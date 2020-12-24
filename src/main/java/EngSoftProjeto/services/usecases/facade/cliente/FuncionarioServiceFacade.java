@@ -2,6 +2,7 @@ package EngSoftProjeto.services.usecases.facade.cliente;
 
 
 import EngSoftProjeto.Models.Funcionario;
+import EngSoftProjeto.Models.Tarefa;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +13,14 @@ public class FuncionarioServiceFacade implements FuncionarioServiceFacadeI {
 
     private final MostraPorIdFuncionarioUseCase mostraPorIdFuncionarioUseCase;
     private final MostraTodosFuncionarioUseCase mostraTodosFuncionarioUseCase;
+    private final MostrarTarefasPorFuncionarioUseCase mostrarTarefasPorFuncionarioUseCase;
+    private final CriarFuncionarioUseCase criarFuncionarioUseCase;
 
-    public FuncionarioServiceFacade(MostraPorIdFuncionarioUseCase mostraPorIdFuncionarioUseCase,MostraTodosFuncionarioUseCase mostraTodosFuncionarioUseCase) {
+    public FuncionarioServiceFacade(MostraPorIdFuncionarioUseCase mostraPorIdFuncionarioUseCase, MostraTodosFuncionarioUseCase mostraTodosFuncionarioUseCase, MostrarTarefasPorFuncionarioUseCase mostrarTarefasPorFuncionarioUseCase, CriarFuncionarioUseCase criarFuncionarioUseCase) {
         this.mostraPorIdFuncionarioUseCase=mostraPorIdFuncionarioUseCase;
         this.mostraTodosFuncionarioUseCase=mostraTodosFuncionarioUseCase;
+        this.mostrarTarefasPorFuncionarioUseCase = mostrarTarefasPorFuncionarioUseCase;
+        this.criarFuncionarioUseCase = criarFuncionarioUseCase;
     }
 
     @Override
@@ -28,5 +33,14 @@ public class FuncionarioServiceFacade implements FuncionarioServiceFacadeI {
         return mostraPorIdFuncionarioUseCase.findById(id);
     }
 
+    @Override
+    public Optional<Funcionario> criaFuncionario(Funcionario funcionario){
+        return  criaFuncionario(funcionario);
+    }
+
+    @Override
+    public List<Tarefa> mostrarTarefasorFuncionario(Funcionario funcionario){
+        return mostrarTarefasorFuncionario(funcionario);
+    }
 
 }
