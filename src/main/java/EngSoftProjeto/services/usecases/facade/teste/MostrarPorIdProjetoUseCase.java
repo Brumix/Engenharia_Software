@@ -1,9 +1,10 @@
-package EngSoftProjeto.services.usecases.facade.cliente;
+package EngSoftProjeto.services.usecases.facade.teste;
 
 import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Models.Projeto;
 import EngSoftProjeto.Repositories.ClienteRepository;
 import EngSoftProjeto.Repositories.ProjetoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,6 +12,8 @@ import java.util.Optional;
 @Service
 public class MostrarPorIdProjetoUseCase {
     private final ProjetoRepository projetoRepository;
+
+
 
     public MostrarPorIdProjetoUseCase(ProjetoRepository projetoRepository) {
         this.projetoRepository = projetoRepository;

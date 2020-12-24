@@ -1,4 +1,4 @@
-package EngSoftProjeto.services.usecases.facade.cliente;
+package EngSoftProjeto.services.usecases.facade;
 
 
 import EngSoftProjeto.Models.Cliente;
@@ -17,7 +17,6 @@ public class AdicionarProjectoClienteUseCase {
     public AdicionarProjectoClienteUseCase(ClienteRepository clienteRepository) {
         this.clienteRepository=clienteRepository;
     }
-
 
 
 

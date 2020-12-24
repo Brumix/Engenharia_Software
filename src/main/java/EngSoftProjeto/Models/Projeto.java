@@ -1,8 +1,7 @@
 package EngSoftProjeto.Models;
 
 import EngSoftProjeto.Models.Cliente;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,7 +10,23 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Projeto {
+
+  public Projeto() {
+  }
+
+  public Projeto(Long id, String nome, int duracao, Integer precoFinal, float percentagemDeConclusao, Cliente cliente, List<Tarefa> tarefas) {
+    this.id = id;
+    this.nome = nome;
+    this.duracao = duracao;
+    this.precoFinal = precoFinal;
+    this.percentagemDeConclusao = percentagemDeConclusao;
+    this.cliente = cliente;
+    this.tarefas = tarefas;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,4 +76,5 @@ public class Projeto {
       if(tar.getNome().equals(tarefa.getNome())) tar.setConcluida(true);
     }
   }
+
 }

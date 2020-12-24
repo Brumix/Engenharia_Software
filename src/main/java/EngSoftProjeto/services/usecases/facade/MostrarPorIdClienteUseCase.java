@@ -1,8 +1,9 @@
-package EngSoftProjeto.services.usecases.facade.cliente;
+package EngSoftProjeto.services.usecases.facade;
 
 
 import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Repositories.ClienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 

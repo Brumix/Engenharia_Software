@@ -1,9 +1,10 @@
-package EngSoftProjeto.services.usecases.facade.cliente;
+package EngSoftProjeto.services.usecases.facade;
 
 
 import EngSoftProjeto.Models.Projeto;
 import EngSoftProjeto.Models.Tarefa;;
 import EngSoftProjeto.Repositories.TarefaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;

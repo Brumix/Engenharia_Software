@@ -1,8 +1,11 @@
-package EngSoftProjeto.services.usecases.facade.cliente;
+package EngSoftProjeto.services.usecases.facade;
 
 import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Models.Projeto;
 import EngSoftProjeto.Models.Tarefa;
+import EngSoftProjeto.services.usecases.facade.teste.AdicionaTarefaProjetoUseCase;
+import EngSoftProjeto.services.usecases.facade.teste.CriarProjetoUseCase;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +21,7 @@ public class ProjetoServiceFacade implements ProjetoServiceFacadeI {
     private final MostraClientePorPojetoUseCase mostraClientePorPojetoUseCase;
     private final MostraTarefaPorPojetoUseCase mostraTarefaPorPojetoUseCase;
 
-
+    @Autowired
     public ProjetoServiceFacade(AdicionaTarefaProjetoUseCase adicionaTarefaProjetoUseCase, CriarProjetoUseCase criarProjetoUseCase, MostrarPorIdClienteUseCase mostrasPorIdUseCase, MostraTodosProjetoUseCase mostrarTodosProjetosUseCase, MostraClientePorPojetoUseCase mostraClientePorPojetoUseCase, MostraTarefaPorPojetoUseCase mostraTarefaPorPojetoUseCase) {
         this.adicionaTarefaProjetoUseCase = adicionaTarefaProjetoUseCase;
         this.criarProjetoUseCase = criarProjetoUseCase;

@@ -1,8 +1,9 @@
-package EngSoftProjeto.services.usecases.facade.cliente;
+package EngSoftProjeto.services.usecases.facade;
 
 
 import EngSoftProjeto.Models.Funcionario;
 import EngSoftProjeto.Models.Tarefa;
+import EngSoftProjeto.services.usecases.facade.teste.CriarFuncionarioUseCase;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class FuncionarioServiceFacade implements FuncionarioServiceFacadeI {
     }
 
     @Override
-    public List<Funcionario> mostrarTodosProjetos() {
+    public List<Funcionario> mostrarTodos() {
         return mostraTodosFuncionarioUseCase.findAll();
     }
 

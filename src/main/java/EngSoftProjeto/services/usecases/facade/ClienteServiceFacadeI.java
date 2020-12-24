@@ -1,4 +1,4 @@
-package EngSoftProjeto.services.usecases.facade.cliente;
+package EngSoftProjeto.services.usecases.facade;
 
 import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Models.Projeto;

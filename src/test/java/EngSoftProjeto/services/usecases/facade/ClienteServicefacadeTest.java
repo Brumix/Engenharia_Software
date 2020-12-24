@@ -1,8 +1,9 @@
+package EngSoftProjeto.services.usecases.facade;
 
-package EngSoftProjeto.services.usecases.facade.cliente;
 
 import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Models.Projeto;
+import EngSoftProjeto.services.usecases.facade.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,7 +44,6 @@ class ClienteServicefacadeTest {
 
     @Test
     void criaCliente() {
-
         Cliente cliente = new Cliente();
         cliente.setId(1L);
         when(criarClienteUseCase.criarcliente(cliente)).thenReturn(Optional.of(cliente));
