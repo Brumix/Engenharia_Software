@@ -13,4 +13,8 @@ public interface FuncionarioService {
 
     Optional<Funcionario> encontraId(Long id);
 
+    List<Funcionario> listarTareProjetosncionario(Projeto pojeto);  //lista todos os pojetFuncio funcionario
+
+    Optional<Funcionario> criaFuncionario(Funcionario funcionario);
+
 }

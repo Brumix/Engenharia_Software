@@ -7,12 +7,12 @@ import EngSoftProjeto.Models.Tarefa;
 import java.util.List;
 import java.util.Optional;
 
-public interface TarefaService {
+public interface TarefaService{
 
-    List<Tarefa> encontraTodos();
+    Optional<Tarefa> encontraTarefaPorId(Long id);
 
-    Optional<Tarefa> encontraId(Long id);
+    Optional<Funcionario> adicionaFuncionarioAUmaTarefa(Funcionario funcionario,Tarefa tarefa);
 
-    Optional<Funcionario> adicionaFuncionario(Funcionario converter);
+    Optional<Tarefa>criarTarefa(Tarefa tarefa);
 
 }

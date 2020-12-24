@@ -1,25 +1,21 @@
 package EngSoftProjeto.services.usecases.facade.cliente;
 
-
 import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Repositories.ClienteRepository;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
+import java.util.*;
 
 @Service
-public class MostrarPorIdUseCase {
+public class MostrarTodosClientesUseCase {
     private final ClienteRepository clienteRepository;
 
-    public MostrarPorIdUseCase(ClienteRepository clienteRepository) {
+    public MostrarTodosClientesUseCase(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
 
-    public Optional<Cliente> findById(Long id) {
-        return clienteRepository.findById(id);
+    public List<Cliente> findAll() {
+        return (List<Cliente>) clienteRepository.findAll();
     }
+
 }
-
-
-
-

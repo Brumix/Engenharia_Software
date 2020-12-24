@@ -24,19 +24,19 @@ class ClienteServicefacadeTest {
     @MockBean
     private CriarClienteUseCase criarClienteUseCase;
     @MockBean
-    private MostrarPorIdUseCase mostrarPorIdUseCase;
+    private MostrarPorIdClienteUseCase mostrarPorIdClienteUseCase;
     @MockBean
-    private MostrarTodosOsClientesUseCase mostrarTodosOsClientesUseCase;
+    private MostrarTodosClientesUseCase mostrarTodosClientesUseCase;
 
     @Test
     void encontraTodos() {
-        when(mostrarTodosOsClientesUseCase.findAll()).thenReturn(new ArrayList<>());
+        when(mostrarTodosClientesUseCase.findAll()).thenReturn(new ArrayList<>());
         assertNotNull(clienteServicefacade.encontraTodos());
     }
 
     @Test
     void encontraId() {
-        when(mostrarPorIdUseCase.findById(1L)).thenReturn(Optional.of(new Cliente()));
+        when(mostrarPorIdClienteUseCase.findById(1L)).thenReturn(Optional.of(new Cliente()));
         assertTrue(clienteServicefacade.encontraId(1L).isPresent());
         assertTrue(clienteServicefacade.encontraId(2L).isEmpty());
     }

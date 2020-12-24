@@ -2,7 +2,6 @@ package EngSoftProjeto.services.usecases.facade.cliente;
 
 import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.services.ClientService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,20 +12,20 @@ public class ClienteServicefacade implements ClienteServiceFacadeI {
 
     private final AdicionarProjectoClienteUseCase adicionarProjectoClienteUseCase ;
     private final CriarClienteUseCase criarClienteUseCase;
-    private final MostrarPorIdUseCase mostrasPorIdUseCase;
-    private final MostrarTodosOsClientesUseCase mostrarTodosOsClientesUseCase;
+    private final MostrarPorIdClienteUseCase mostrasPorIdUseCase;
+    private final MostrarTodosClientesUseCase mostrarTodosClientesUseCase;
 
 
-    public ClienteServicefacade(AdicionarProjectoClienteUseCase adicionarProjectoClienteUseCase, CriarClienteUseCase criarClienteUseCase, MostrarPorIdUseCase mostrasPorIdUseCase, MostrarTodosOsClientesUseCase mostrarTodosOsClientesUseCase) {
+    public ClienteServicefacade(AdicionarProjectoClienteUseCase adicionarProjectoClienteUseCase, CriarClienteUseCase criarClienteUseCase, MostrarPorIdClienteUseCase mostrasPorIdUseCase, MostrarTodosClientesUseCase mostrarTodosClientesUseCase) {
         this.adicionarProjectoClienteUseCase = adicionarProjectoClienteUseCase;
         this.criarClienteUseCase = criarClienteUseCase;
         this.mostrasPorIdUseCase = mostrasPorIdUseCase;
-        this.mostrarTodosOsClientesUseCase = mostrarTodosOsClientesUseCase;
+        this.mostrarTodosClientesUseCase = mostrarTodosClientesUseCase;
     }
 
     @Override
     public List<Cliente> encontraTodos() {
-        return mostrarTodosOsClientesUseCase.findAll();
+        return mostrarTodosClientesUseCase.findAll();
     }
 
     @Override
