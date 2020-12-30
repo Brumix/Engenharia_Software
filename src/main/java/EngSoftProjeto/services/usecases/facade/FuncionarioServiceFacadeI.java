@@ -4,6 +4,6 @@ import EngSoftProjeto.Models.Funcionario;
 
 import java.util.Optional;
 
-public interface CriarFuncionarioUseCaseI {
+public interface FuncionarioServiceFacadeI {
     Optional<Funcionario> criarfuncionario(Funcionario funcionario);
 }

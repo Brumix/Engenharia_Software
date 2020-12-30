@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CriarFuncionarioUseCase implements CriarFuncionarioUseCaseI {
+public class CriarFuncionarioUseCase  {
 
     private final FuncionarioRepository funcionarioRepository;
 
@@ -27,7 +27,7 @@ public class CriarFuncionarioUseCase implements CriarFuncionarioUseCaseI {
 
     }
 
-    @Override
+
     public Optional<Funcionario> criarfuncionario(Funcionario funcionario) {
         Optional<Funcionario> optionalFuncionario = funcionarioRepository.findByNome(funcionario.getNome());
 
