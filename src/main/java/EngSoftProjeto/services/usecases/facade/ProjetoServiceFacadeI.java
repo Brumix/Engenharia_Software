@@ -1,22 +1,18 @@
 package EngSoftProjeto.services.usecases.facade;
 
-import EngSoftProjeto.Models.Cliente;
 import EngSoftProjeto.Models.Projeto;
 import EngSoftProjeto.Models.Tarefa;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface ProjetoServiceFacadeI {
-    List<Projeto> encontraTodos();
+    Optional<Projeto> adicionaTarefa(Long projetoid, Tarefa tarefa);
 
-    Optional<Cliente> encontraId(Long id);
+    Optional<Projeto> criarprojeto(Projeto projeto);
 
-    Optional<Projeto> criarProjeto(Projeto converter);
+    Optional<Projeto> mostrarEstadoProjeto(Long projetoid);
 
-    Optional<Projeto> adicionaTarefaProjecto(Long projetoId, Tarefa tarefa);
+    Optional<Float> precoProjeto(Long projetoid);
 
-    List<Tarefa> mostraTarefasPorPojeto(Projeto projeto);
-
-    Optional<Cliente> mostraClientePorPojeto(Projeto projeto);
+    Optional<Integer> mostrarTempoProjeto(Long projetoid);
 }

@@ -10,28 +10,16 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Projeto {
 
-  public Projeto() {
-  }
-
-  public Projeto(Long id, String nome, int duracao, Integer precoFinal, float percentagemDeConclusao, Cliente cliente, List<Tarefa> tarefas) {
-    this.id = id;
-    this.nome = nome;
-    this.duracao = duracao;
-    this.precoFinal = precoFinal;
-    this.percentagemDeConclusao = percentagemDeConclusao;
-    this.cliente = cliente;
-    this.tarefas = tarefas;
-  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
+  @EqualsAndHashCode.Include
   private String nome;
 
   private int duracao;
@@ -50,7 +38,7 @@ public class Projeto {
   public float calcularPrecoProjeto() {
     float custo = 0;
     for (Tarefa tarefa : tarefas) {
-      custo += tarefa.getPreco();
+      custo += tarefa.calculaPreco();
     }
     return custo;
   }
@@ -76,5 +64,6 @@ public class Projeto {
       if(tar.getNome().equals(tarefa.getNome())) tar.setConcluida(true);
     }
   }
+
 
 }

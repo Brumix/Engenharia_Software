@@ -1,47 +1,21 @@
 package EngSoftProjeto.services.usecases.facade;
 
-
 import EngSoftProjeto.Models.Funcionario;
-import EngSoftProjeto.Models.Tarefa;
-import EngSoftProjeto.services.usecases.facade.teste.CriarFuncionarioUseCase;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
-public class FuncionarioServiceFacade implements FuncionarioServiceFacadeI {
-
-    private final MostraPorIdFuncionarioUseCase mostraPorIdFuncionarioUseCase;
-    private final MostraTodosFuncionarioUseCase mostraTodosFuncionarioUseCase;
-    private final MostrarTarefasPorFuncionarioUseCase mostrarTarefasPorFuncionarioUseCase;
+public class FuncionarioServiceFacade {
     private final CriarFuncionarioUseCase criarFuncionarioUseCase;
 
-    public FuncionarioServiceFacade(MostraPorIdFuncionarioUseCase mostraPorIdFuncionarioUseCase, MostraTodosFuncionarioUseCase mostraTodosFuncionarioUseCase, MostrarTarefasPorFuncionarioUseCase mostrarTarefasPorFuncionarioUseCase, CriarFuncionarioUseCase criarFuncionarioUseCase) {
-        this.mostraPorIdFuncionarioUseCase=mostraPorIdFuncionarioUseCase;
-        this.mostraTodosFuncionarioUseCase=mostraTodosFuncionarioUseCase;
-        this.mostrarTarefasPorFuncionarioUseCase = mostrarTarefasPorFuncionarioUseCase;
+        @Autowired
+    public FuncionarioServiceFacade(CriarFuncionarioUseCase criarFuncionarioUseCase) {
         this.criarFuncionarioUseCase = criarFuncionarioUseCase;
     }
 
-    @Override
-    public List<Funcionario> mostrarTodos() {
-        return mostraTodosFuncionarioUseCase.findAll();
+    public Optional<Funcionario>criarfuncionario(Funcionario funcionario){
+        return criarFuncionarioUseCase.criarfuncionario(funcionario);
     }
-
-    @Override
-    public Optional<Funcionario> encontraProjetosId(Long id) {
-        return mostraPorIdFuncionarioUseCase.findById(id);
-    }
-
-    @Override
-    public Optional<Funcionario> criaFuncionario(Funcionario funcionario){
-        return  criarFuncionarioUseCase.criarfuncionario(funcionario);
-    }
-
-    @Override
-    public List<Tarefa> mostrarTarefasorFuncionario(Funcionario funcionario){
-        return mostrarTarefasPorFuncionarioUseCase.mostraTarefasPorPojeto(funcionario);
-    }
-
 }

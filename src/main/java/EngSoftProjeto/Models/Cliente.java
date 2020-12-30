@@ -1,7 +1,6 @@
 package EngSoftProjeto.Models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,6 +9,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
 
   @Id
@@ -50,7 +51,4 @@ public class Cliente {
       return null;
   }
 
-  public void adicionarProjeto(Projeto p){
-     projetos.add(p);
-  }
 }

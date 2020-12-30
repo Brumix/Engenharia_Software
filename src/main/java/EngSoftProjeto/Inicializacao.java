@@ -42,6 +42,7 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         /* Projeto */
 
         Projeto p1 = new Projeto();
+        p1.setId(5L);
         p1.setNome("Projeto ESOF");
         p1.setCliente(cl);
 
@@ -62,8 +63,10 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
         Tarefa tf = new Tarefa();
 
-        tf.setId(1L);
+        tf.setId(5L);
         tf.setDuracao(60);
+        tf.setConcluida(true);
+        p1.tarefas.add(tf);
 
 
         tarefaRepository.save(tf);
