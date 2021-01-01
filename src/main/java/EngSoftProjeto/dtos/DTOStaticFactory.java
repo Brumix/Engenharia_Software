@@ -1,12 +1,15 @@
 package EngSoftProjeto.dtos;
 
+import EngSoftProjeto.Models.Cargo;
+import EngSoftProjeto.Models.Funcionario;
 import EngSoftProjeto.Models.Projeto;
+import EngSoftProjeto.Models.Tarefa;
 
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DTOStaticFactory {
     /**
-     *
      * Implementa a lógica necessária para garantir uma única instância da fábrica estática
      */
     private static DTOStaticFactory dtoAbstractFactory;
@@ -14,19 +17,51 @@ public class DTOStaticFactory {
     private DTOStaticFactory() {
     }
 
-    public static DTOStaticFactory getInstance(){
-        if(dtoAbstractFactory==null){
-            dtoAbstractFactory=new DTOStaticFactory();
+    public static DTOStaticFactory getInstance() {
+        if (dtoAbstractFactory == null) {
+            dtoAbstractFactory = new DTOStaticFactory();
         }
         return dtoAbstractFactory;
     }
 
     public ProjetoDTO convertToProjetoDTO(Projeto projeto) {
-        return ProjetoDTO.builder()
-                .duracao(projeto.duracaoProjeto())
-                .nome(projeto.getNome())
-                .precoFinal((int)projeto.calcularPrecoProjeto())
-                .percentagemDeConclusao(projeto.calcularPercentagemConclusao())
+        return ProjetoDTO.builder().nome(projeto.getNome()).build();
+    }
+
+    public Projeto convertToProjeto(ProjetoDTO projetoDTO) {
+        List<Tarefa> tarefaList = new ArrayList<>();
+        for (TarefaDTO tarefa : projetoDTO.getTarefaDTOS())
+            tarefaList.add(convertToTarefa(tarefa));
+        return Projeto.builder().nome(projetoDTO.getNome()).tarefas(tarefaList).build();
+
+    }
+
+    public TarefaDTO convertToTarefasDTO(Tarefa tarefa) {
+        return TarefaDTO.builder().nome(tarefa.getNome())
+                .funcionario(convertToFuncionarioDTO(tarefa.getFuncionario()))
+                .projeto(convertToProjetoDTO(tarefa.getProjeto()))
+                .build();
+    }
+
+    public Tarefa convertToTarefa(TarefaDTO tarefaDTO) {
+        return Tarefa.builder().nome(tarefaDTO.getNome()).funcionario(convertToFuncionario(tarefaDTO.getFuncionario()))
+                .projeto(convertToProjeto(tarefaDTO.getProjeto()))
+                .build();
+    }
+
+    public FuncionarioDTO convertToFuncionarioDTO(Funcionario funcionario){
+        return FuncionarioDTO.builder().cargo( funcionario.getCargo().toString())
+                .email(funcionario.getEmail())
+                .password(funcionario.getPassword())
+                .nome(funcionario.getNome())
+                .build();
+    }
+
+    public  Funcionario convertToFuncionario(FuncionarioDTO funcionarioDTO){
+        return Funcionario.builder().nome(funcionarioDTO.getNome())
+                .cargo(funcionarioDTO.getCargoFromStr(funcionarioDTO.getCargo()))
+                .Password(funcionarioDTO.getPassword())
+                .email(funcionarioDTO.getEmail())
                 .build();
     }
 }

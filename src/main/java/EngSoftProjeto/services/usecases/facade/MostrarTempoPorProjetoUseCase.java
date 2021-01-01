@@ -1,7 +1,6 @@
 package EngSoftProjeto.services.usecases.facade;
 
 import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
 import EngSoftProjeto.Repositories.ProjetoRepository;
 import org.springframework.stereotype.Service;
 

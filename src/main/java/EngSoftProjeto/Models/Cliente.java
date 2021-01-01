@@ -9,6 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cliente {
@@ -27,7 +28,7 @@ public class Cliente {
    public String consultarEstadoProjeto(Projeto p) {
     for (Projeto projeto : projetos)
       if (p.getNome().equals(projeto.getNome()))
-        return (projeto.getNome() + " " + projeto.getPercentagemDeConclusao());
+        return (projeto.getNome() + " " + projeto.calcularPercentagemConclusao());
 
 
     return null;
@@ -36,7 +37,7 @@ public class Cliente {
   public String  consultarDuracaoProjeto(Projeto p) {
     for (Projeto projeto : projetos)
       if (p.getNome().equals(projeto.getNome()))
-        return (projeto.getNome() + " " + projeto.getDuracao());
+        return (projeto.getNome() + " " + projeto.duracaoProjeto());
 
 
     return null;
@@ -45,7 +46,7 @@ public class Cliente {
   public String  ConsultarPrecoProjeto(Projeto p) {
     for (Projeto projeto : projetos)
       if (p.getNome().equals(projeto.getNome()))
-        return (projeto.getNome() + " " + projeto.getPrecoFinal());
+        return (projeto.getNome() + " " + projeto.calcularPrecoProjeto());
 
       return null;
   }

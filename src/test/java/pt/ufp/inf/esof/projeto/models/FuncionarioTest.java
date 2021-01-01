@@ -24,11 +24,7 @@ class FuncionarioTest {
         Projeto projeto = new Projeto();
         projeto.setId(1L);
         projeto.setNome("projeto");
-        projeto.setDuracao(2000);
-        projeto.setPercentagemDeConclusao(20);
-        projeto.setPrecoFinal(5000);
         Tarefa tarefa = new Tarefa();
-        //tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(false);
         Funcionario funcionario = new Funcionario();
@@ -49,11 +45,7 @@ class FuncionarioTest {
         Projeto projeto = new Projeto();
         projeto.setId(1L);
         projeto.setNome("projeto");
-        projeto.setDuracao(2000);
-        projeto.setPercentagemDeConclusao(20);
-        projeto.setPrecoFinal(5000);
         Tarefa tarefa = new Tarefa();
-        //tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(false);
         Funcionario funcionario = new Funcionario();
@@ -74,11 +66,7 @@ class FuncionarioTest {
         Projeto projeto = new Projeto();
         projeto.setId(1L);
         projeto.setNome("projeto");
-        projeto.setDuracao(2000);
-        projeto.setPercentagemDeConclusao(20);
-        projeto.setPrecoFinal(5000);
         Tarefa tarefa = new Tarefa();
-       // tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(false);
         Funcionario funcionario = new Funcionario();

@@ -2,9 +2,11 @@ package EngSoftProjeto.services.usecases.facade;
 
 import EngSoftProjeto.Models.Funcionario;
 import EngSoftProjeto.Models.Tarefa;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class TarefaServiceFacade implements TarefaServiceFacadeI {
     private final AdicionarFuncionarioTarefaUseCase adicionarFuncionarioTarefaUseCase;
     private final AtualizarTarefaConclusaoUseCase atualizarTarefaConclusaoUseCase;

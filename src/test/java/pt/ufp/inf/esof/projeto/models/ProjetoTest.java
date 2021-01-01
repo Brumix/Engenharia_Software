@@ -3,10 +3,7 @@ package pt.ufp.inf.esof.projeto.models;
 import EngSoftProjeto.Models.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ProjetoTest {
 
@@ -122,12 +119,10 @@ class ProjetoTest {
         projeto.setId(1L);
         projeto.setNome("projeto");
         Tarefa tarefa = new Tarefa();
-        //tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(true);
         Tarefa tarefa1 = new Tarefa();
         tarefa1.setDuracao(100);
-        //tarefa1.setPreco(1000);
         tarefa1.setNome("classes1");
         tarefa1.setConcluida(false);
         tarefa1.setDuracao(100);

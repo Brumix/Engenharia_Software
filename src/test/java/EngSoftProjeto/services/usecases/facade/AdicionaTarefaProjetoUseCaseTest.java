@@ -1,6 +1,5 @@
 package EngSoftProjeto.services.usecases.facade;
 
-import EngSoftProjeto.Models.Funcionario;
 import EngSoftProjeto.Models.Projeto;
 import EngSoftProjeto.Models.Tarefa;
 import EngSoftProjeto.Repositories.ProjetoRepository;
@@ -12,7 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 @SpringBootTest(classes=AdicionaTarefaProjetoUseCase.class)
 class AdicionaTarefaProjetoUseCaseTest {

@@ -2,9 +2,11 @@ package EngSoftProjeto.services.usecases.facade;
 
 import EngSoftProjeto.Models.Tarefa;
 import EngSoftProjeto.Repositories.TarefaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class MostrarTempoExecucaoTarefaUseCase {
 
     private final TarefaRepository tarefaRepository;

@@ -34,7 +34,7 @@ public class ProjetoServiceFacade implements ProjetoServiceFacadeI {
          return criarProjetoUseCase.criarprojeto(projeto);
     }
     @Override
-    public Optional<Projeto>mostrarEstadoProjeto(Long projetoid){
+    public Optional<Float> mostrarEstadoProjeto(Long projetoid){
         return mostrarEstadodoProjetoUseCase.mostrarEstadoProjeto(projetoid);
     }
     @Override

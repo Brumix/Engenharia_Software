@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository //String pq chave primaria de Empregado é o nome pq é unico
+@Repository
 public interface FuncionarioRepository extends CrudRepository<Funcionario,Long > {
 
     Optional<Funcionario> findByNome(String nome);

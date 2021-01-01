@@ -10,7 +10,7 @@ public interface ProjetoServiceFacadeI {
 
     Optional<Projeto> criarprojeto(Projeto projeto);
 
-    Optional<Projeto> mostrarEstadoProjeto(Long projetoid);
+    Optional<Float> mostrarEstadoProjeto(Long projetoid);
 
     Optional<Float> precoProjeto(Long projetoid);
 

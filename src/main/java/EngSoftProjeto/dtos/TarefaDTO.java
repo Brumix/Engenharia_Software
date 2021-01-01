@@ -12,8 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TarefaDTO {
     private String nome;
-    private float duracao;
-    private Boolean concluida;
     private FuncionarioDTO funcionario;
     private ProjetoDTO projeto;
 }
