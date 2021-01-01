@@ -24,7 +24,6 @@ public class Cliente {
   public  List<Projeto> projetos=new ArrayList<>();  //array de projetos de cada cliente
 
 
-
    public String consultarEstadoProjeto(Projeto p) {
     for (Projeto projeto : projetos)
       if (p.getNome().equals(projeto.getNome()))

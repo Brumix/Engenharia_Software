@@ -16,7 +16,9 @@ public class ProjetoServiceFacade implements ProjetoServiceFacadeI {
     private final MostrarTempoPorProjetoUseCase mostrarTempoPorProjetoUseCase;
     //DUVIDA
 @Autowired
-    public ProjetoServiceFacade(AdicionaTarefaProjetoUseCase adicionaTarefaProjetoUseCase, CriarProjetoUseCase criarProjetoUseCase, MostrarEstadodoProjetoUseCase mostrarEstadodoProjetoUseCase, MostrarPrecoProjetoUseCase mostrarPrecoProjetoUseCase, MostrarTempoPorProjetoUseCase mostrarTempoPorProjetoUseCase) {
+    public ProjetoServiceFacade(AdicionaTarefaProjetoUseCase adicionaTarefaProjetoUseCase,
+                                CriarProjetoUseCase criarProjetoUseCase, MostrarEstadodoProjetoUseCase mostrarEstadodoProjetoUseCase,
+                                MostrarPrecoProjetoUseCase mostrarPrecoProjetoUseCase, MostrarTempoPorProjetoUseCase mostrarTempoPorProjetoUseCase) {
         this.adicionaTarefaProjetoUseCase = adicionaTarefaProjetoUseCase;
         this.criarProjetoUseCase = criarProjetoUseCase;
         this.mostrarEstadodoProjetoUseCase = mostrarEstadodoProjetoUseCase;

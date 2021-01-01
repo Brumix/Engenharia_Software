@@ -22,10 +22,6 @@ public class Projeto {
   @EqualsAndHashCode.Include
   private String nome;
 
-  private int duracao;
-
-  private Integer precoFinal;
-
   private float percentagemDeConclusao;
 
   @ManyToOne
