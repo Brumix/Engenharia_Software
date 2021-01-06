@@ -24,7 +24,7 @@ public class Tarefa {
 
   private Boolean concluida;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   private Funcionario funcionario;
 
   @ManyToOne

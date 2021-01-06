@@ -25,7 +25,7 @@ public class Projeto {
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "projeto")
+    @OneToMany(mappedBy = "projeto",cascade=CascadeType.ALL )
     public List<Tarefa> tarefas = new ArrayList<>();
 
 

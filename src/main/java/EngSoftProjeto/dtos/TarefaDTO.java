@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TarefaDTO {
     private String nome;
-    private FuncionarioDTO funcionario;
-    private ProjetoDTO projeto;
+    private float duracao;
+   // private FuncionarioDTO funcionario;
+    //private ProjetoDTO projeto;
 }

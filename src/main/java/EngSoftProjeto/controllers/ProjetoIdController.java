@@ -37,7 +37,7 @@ public class ProjetoIdController {
     }
 
 
-    @GetMapping("/{id}/valior")
+    @GetMapping("/{id}/valor")
     public ResponseEntity<Float> getPrecoProjetoById(@PathVariable Long id) {
         Optional<Float> optionalProjeto = projetoServiceFacade.precoProjeto(id);
         return optionalProjeto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

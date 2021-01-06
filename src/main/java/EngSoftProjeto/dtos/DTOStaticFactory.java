@@ -29,23 +29,18 @@ public class DTOStaticFactory {
     }
 
     public Projeto convertToProjeto(ProjetoDTO projetoDTO) {
-        List<Tarefa> tarefaList = new ArrayList<>();
-        for (TarefaDTO tarefa : projetoDTO.getTarefaDTOS())
-            tarefaList.add(convertToTarefa(tarefa));
-        return Projeto.builder().nome(projetoDTO.getNome()).tarefas(tarefaList).build();
+        return Projeto.builder().nome(projetoDTO.getNome()).build();
 
     }
 
     public TarefaDTO convertToTarefasDTO(Tarefa tarefa) {
-        return TarefaDTO.builder().nome(tarefa.getNome())
-                .funcionario(convertToFuncionarioDTO(tarefa.getFuncionario()))
-                .projeto(convertToProjetoDTO(tarefa.getProjeto()))
+        return TarefaDTO.builder().nome(tarefa.getNome()).duracao(tarefa.getDuracao())
                 .build();
     }
 
     public Tarefa convertToTarefa(TarefaDTO tarefaDTO) {
-        return Tarefa.builder().nome(tarefaDTO.getNome()).funcionario(convertToFuncionario(tarefaDTO.getFuncionario()))
-                .projeto(convertToProjeto(tarefaDTO.getProjeto()))
+        return Tarefa.builder().nome(tarefaDTO.getNome())
+                .duracao(tarefaDTO.getDuracao())
                 .build();
     }
 

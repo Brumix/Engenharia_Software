@@ -31,6 +31,7 @@ public class Funcionario {
     private Cargo cargo;
 
 
+    @Builder.Default
     @OneToMany(mappedBy = "funcionario")
     public List<Tarefa> tarefas = new ArrayList<>();
 

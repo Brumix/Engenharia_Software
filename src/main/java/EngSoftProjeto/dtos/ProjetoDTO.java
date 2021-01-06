@@ -14,5 +14,5 @@ import java.util.List;
 @AllArgsConstructor
 public class ProjetoDTO {
     private String nome;
-    private List<TarefaDTO> tarefaDTOS=new ArrayList<>();
+   // private List<TarefaDTO> tarefaDTOS=new ArrayList<>();
 }

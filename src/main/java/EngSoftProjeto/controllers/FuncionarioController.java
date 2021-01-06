@@ -20,7 +20,6 @@ public class FuncionarioController {
     private  final FuncionarioServiceFacade funcionarioServiceFacade;
     private final DTOStaticFactory dtoStaticFactory = DTOStaticFactory.getInstance();
 
-
     public FuncionarioController(FuncionarioServiceFacade funcionarioServiceFacade) {
         this.funcionarioServiceFacade = funcionarioServiceFacade;
     }
