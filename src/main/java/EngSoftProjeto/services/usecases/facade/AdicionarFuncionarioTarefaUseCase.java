@@ -25,11 +25,13 @@ public class AdicionarFuncionarioTarefaUseCase {
     public Optional<Tarefa> adicionaFuncionario(Long tarefaId, Funcionario funcionario) {
 
         Optional<Tarefa> optionalTarefa = this.tarefaRepository.findById(tarefaId);
-        if (optionalTarefa.isPresent()) {
+        Optional<Funcionario> optionalFuncionario = this.funcionarioRepository.findByNome(funcionario.getNome());
+        if (optionalTarefa.isPresent() && optionalFuncionario.isPresent()) {
             Tarefa tarefa = optionalTarefa.get();
+            Funcionario funcionario1= optionalFuncionario.get();
             if (tarefa.getFuncionario()==null || !tarefa.getFuncionario().equals(funcionario)) {
                 tarefa.setFuncionario(funcionario);
-                funcionario.tarefas.add(tarefa);
+                funcionario1.tarefas.add(tarefa);
                 funcionarioRepository.save(funcionario);
                 tarefaRepository.save(tarefa);
                 return Optional.of(tarefa);
