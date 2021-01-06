@@ -25,7 +25,7 @@ public class FuncionarioController {
     }
 
     @PostMapping
-    public ResponseEntity<FuncionarioDTO> postProjeto(@RequestBody FuncionarioDTO funcionarioDTO) {
+    public ResponseEntity<FuncionarioDTO> postFuncionario(@RequestBody FuncionarioDTO funcionarioDTO) {
         Optional<Funcionario> optionalFuncionario = funcionarioServiceFacade.criarfuncionario(dtoStaticFactory.convertToFuncionario(funcionarioDTO));
         return optionalFuncionario.map(funcionario -> ResponseEntity.ok(dtoStaticFactory.convertToFuncionarioDTO(funcionario))).orElseGet(() -> ResponseEntity.badRequest().build());
     }

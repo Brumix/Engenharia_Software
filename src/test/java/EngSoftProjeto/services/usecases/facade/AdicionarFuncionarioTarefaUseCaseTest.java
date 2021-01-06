@@ -26,13 +26,12 @@ class AdicionarFuncionarioTarefaUseCaseTest {
     @Test
     void adicionaFuncionario() {
 
-        Tarefa tarefa=new Tarefa();
-        tarefa.setId(1L);
         Funcionario funcionario=new Funcionario();
         funcionario.setId(1L);
         funcionario.setNome("andre");
+        Tarefa tarefa=new Tarefa();
+        tarefa.setId(1L);
 
-    //when(adicionarFuncionarioTarefaUseCase.adicionaFuncionario(tarefa.getId(), funcionario)).thenReturn( Optional.of(tarefa));
         when(tarefaRepository.findById(1L)).thenReturn(Optional.of(tarefa));
     assertTrue(adicionarFuncionarioTarefaUseCase.adicionaFuncionario(tarefa.getId(), funcionario).isPresent());
 
