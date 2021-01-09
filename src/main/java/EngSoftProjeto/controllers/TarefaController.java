@@ -30,7 +30,7 @@ public class TarefaController {
         return optionalTarefa.map(tarefa -> ResponseEntity.ok(dtoStaticFactory.convertToTarefasDTO(tarefa))).orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PatchMapping("/funcionario/{idTarefa}")
+    @PatchMapping("/funcionario/{idTarefa}") // todo fazer como o stor quer
     public ResponseEntity<TarefaDTO> patchAdicionaFuncionario(@RequestBody FuncionarioDTO funcionarioDTO, @PathVariable Long idTarefa) {
         Optional<Tarefa> optionalTarefa = tarefaServiceFacade.adicionaFuncionario(idTarefa,dtoStaticFactory.convertToFuncionario(funcionarioDTO));
         return optionalTarefa.map(tarefa -> ResponseEntity.ok(dtoStaticFactory.convertToTarefasDTO(tarefa))).orElseGet(() -> ResponseEntity.badRequest().build());
