@@ -1,5 +1,6 @@
 package EngSoftProjeto.services.usecases.facade;
 
+import EngSoftProjeto.Models.Cargo;
 import EngSoftProjeto.Models.Funcionario;
 import EngSoftProjeto.Models.Tarefa;
 import EngSoftProjeto.Repositories.FuncionarioRepository;
@@ -28,15 +29,19 @@ class AdicionarFuncionarioTarefaUseCaseTest {
 
         Tarefa tarefa=new Tarefa();
         tarefa.setId(1L);
+        tarefa.setNome("tarefa");
+        tarefa.setDuracao(60);
         Funcionario funcionario=new Funcionario();
         funcionario.setId(1L);
         funcionario.setNome("andre");
-
-    //when(adicionarFuncionarioTarefaUseCase.adicionaFuncionario(tarefa.getId(), funcionario)).thenReturn( Optional.of(tarefa));
+        funcionario.setCargo(Cargo.AN_JR);
+        funcionario.setPassword("1234");
+        funcionario.setEmail("teste@teste.com");
         when(tarefaRepository.findById(1L)).thenReturn(Optional.of(tarefa));
+        when(funcionarioRepository.findByNome("andre")).thenReturn(Optional.of(funcionario));
     assertTrue(adicionarFuncionarioTarefaUseCase.adicionaFuncionario(tarefa.getId(), funcionario).isPresent());
 
-
+        assertTrue(adicionarFuncionarioTarefaUseCase.adicionaFuncionario(tarefa.getId(), funcionario).isEmpty());
 
     }
 }

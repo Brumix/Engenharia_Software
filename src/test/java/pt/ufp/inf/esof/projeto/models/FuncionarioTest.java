@@ -13,7 +13,6 @@ class FuncionarioTest {
 
     @Test
     void getIdTest() {
-
         Funcionario funcionario = new Funcionario();
         funcionario.setId(1L);
         assertEquals(1L, funcionario.getId());

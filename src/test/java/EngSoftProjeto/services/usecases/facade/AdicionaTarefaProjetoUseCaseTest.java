@@ -32,6 +32,7 @@ class AdicionaTarefaProjetoUseCaseTest {
         when(projetoRepository.findById(1L)).thenReturn(Optional.of(projeto));
         assertTrue(adicionaTarefaProjetoUseCase.adicionaTarefa(projeto.getId(), tarefa).isPresent());
 
+        assertTrue(adicionaTarefaProjetoUseCase.adicionaTarefa(projeto.getId(), tarefa).isEmpty());
 
     }
     }

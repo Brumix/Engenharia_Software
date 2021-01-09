@@ -28,6 +28,7 @@ class AtualizarTarefaConclusaoUseCaseTest {
         assertTrue(atualizarTarefaConclusaoUseCase.atualizaTarefa(tarefa.getId()).isPresent());
 
 
+        assertTrue(atualizarTarefaConclusaoUseCase.atualizaTarefa(tarefa.getId()).isEmpty());
 
     }
 }

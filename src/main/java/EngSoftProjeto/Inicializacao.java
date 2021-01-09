@@ -46,7 +46,6 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         p1.setNome("Projeto ESOF");
         p1.setCliente(cl);
 
-
         projetoRepository.save(p1);
 
         /* Empregado    */
@@ -54,20 +53,16 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         Funcionario emp = new Funcionario();
         emp.setNome("Andre B");
 
-
-
         funcionarioRepository.save(emp);
 
 
         /* Tarefa */
-
         Tarefa tf = new Tarefa();
 
         tf.setId(5L);
         tf.setDuracao(60);
         tf.setConcluida(true);
         p1.tarefas.add(tf);
-
 
         tarefaRepository.save(tf);
     }
