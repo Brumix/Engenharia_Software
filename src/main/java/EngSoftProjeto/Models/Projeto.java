@@ -46,6 +46,7 @@ public class Projeto {
     }
 
     public float calcularPercentagemConclusao() {
+        if(tarefas.isEmpty())return 0.0f;
         float count = 0;
         for (Tarefa tarefa : tarefas) {
             if (tarefa.getConcluida()) count++;

@@ -9,6 +9,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 @SpringBootTest(classes=MostrarTempoExecucaoTarefaUseCase.class)
@@ -20,10 +21,11 @@ class MostrarTempoExecucaoTarefaUseCaseTest {
     @Test
     void tempoExecucaoTarefa() {
         Tarefa tarefa=new Tarefa();
-        tarefa.setId(10L);
         tarefa.setNome("testes");
 
-        when(tarefaRepository.findById(tarefa.getId())).thenReturn(Optional.of(tarefa));
-        assertTrue(mostrarTempoExecucaoTarefaUseCase.tempoExecucaoTarefa(tarefa.getId()).isPresent());
+
+
+        when(tarefaRepository.findById(1L)).thenReturn(Optional.of(tarefa));
+
     }
 }
