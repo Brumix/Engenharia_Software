@@ -3,7 +3,7 @@ package pt.ufp.inf.esof.projeto.models;
 import EngSoftProjeto.Models.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ProjetoTest {
 
@@ -27,27 +27,37 @@ class ProjetoTest {
 
     @Test
     void calcularPrecoProjeto() {
+
         Projeto projeto = new Projeto();
         projeto.setId(1L);
         projeto.setNome("projeto");
-        projeto.setDuracao(2000);
-
-        projeto.setPercentagemDeConclusao(20);
         Tarefa tarefa = new Tarefa();
-        tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(false);
+        tarefa.setDuracao(2);
         projeto.getTarefas().add(tarefa);
         Funcionario funcionario = new Funcionario();
         funcionario.setNome("andre");
-        funcionario.setCargo(Cargo.DEV_JR);
+        funcionario.setCargo(Cargo.AN_JR);
         funcionario.setEmail("teste123@hotmail.com");
         funcionario.setPassword("algo");
         funcionario.getTarefas().add(tarefa);
         tarefa.setFuncionario(funcionario);
         tarefa.setProjeto(projeto);
-
-        assertEquals(1000, projeto.calcularPrecoProjeto());
+        Tarefa tarefa1 = new Tarefa();
+        tarefa1.setNome("classes");
+        tarefa1.setConcluida(false);
+        tarefa1.setDuracao(3);
+        projeto.getTarefas().add(tarefa1);
+        Funcionario funcionario1 = new Funcionario();
+        funcionario1.setNome("andre");
+        funcionario1.setCargo(Cargo.DEV_JR);
+        funcionario1.setEmail("teste123@hotmail.com");
+        funcionario1.setPassword("algo");
+        funcionario1.getTarefas().add(tarefa1);
+        tarefa1.setFuncionario(funcionario1);
+        tarefa1.setProjeto(projeto);
+        assertEquals(70, projeto.calcularPrecoProjeto());
 
     }
 
@@ -57,7 +67,6 @@ class ProjetoTest {
         projeto.setId(1L);
         projeto.setNome("projeto");
         Tarefa tarefa = new Tarefa();
-        tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(false);
         tarefa.setDuracao(100);
@@ -81,12 +90,12 @@ class ProjetoTest {
         projeto.setId(1L);
         projeto.setNome("projeto");
         Tarefa tarefa = new Tarefa();
-        tarefa.setPreco(1000);
+
         tarefa.setNome("classes");
         tarefa.setConcluida(true);
         Tarefa tarefa1 = new Tarefa();
         tarefa1.setDuracao(100);
-        tarefa1.setPreco(1000);
+
         tarefa1.setNome("classes1");
         tarefa1.setConcluida(false);
         tarefa1.setDuracao(100);
@@ -100,7 +109,7 @@ class ProjetoTest {
         funcionario.getTarefas().add(tarefa);
         tarefa.setFuncionario(funcionario);
         tarefa.setProjeto(projeto);
-        assertEquals(funcionario,tarefa.getFuncionario());
+        assertEquals(funcionario, tarefa.getFuncionario());
         assertEquals(50, projeto.calcularPercentagemConclusao());
     }
 
@@ -110,12 +119,10 @@ class ProjetoTest {
         projeto.setId(1L);
         projeto.setNome("projeto");
         Tarefa tarefa = new Tarefa();
-        tarefa.setPreco(1000);
         tarefa.setNome("classes");
         tarefa.setConcluida(true);
         Tarefa tarefa1 = new Tarefa();
         tarefa1.setDuracao(100);
-        tarefa1.setPreco(1000);
         tarefa1.setNome("classes1");
         tarefa1.setConcluida(false);
         tarefa1.setDuracao(100);
@@ -131,5 +138,13 @@ class ProjetoTest {
         tarefa.setProjeto(projeto);
         projeto.atualizarTarefa(tarefa1);
         assertEquals(true, tarefa1.getConcluida());
+    }
+
+    @Test
+    void adicionaClienteTest() {
+        Projeto projeto = new Projeto();
+        Cliente cliente = new Cliente();
+        projeto.setCliente(cliente);
+        assertEquals(cliente, projeto.getCliente());
     }
 }

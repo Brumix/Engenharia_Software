@@ -1,7 +1,6 @@
 package EngSoftProjeto.Models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,12 +9,18 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
+    @EqualsAndHashCode.Include
     private String nome;
 
     private String email;
@@ -26,6 +31,7 @@ public class Funcionario {
     private Cargo cargo;
 
 
+    @Builder.Default
     @OneToMany(mappedBy = "funcionario")
     public List<Tarefa> tarefas = new ArrayList<>();
 
@@ -73,6 +79,7 @@ public class Funcionario {
             }
         }
     }
+
 
 
 }
