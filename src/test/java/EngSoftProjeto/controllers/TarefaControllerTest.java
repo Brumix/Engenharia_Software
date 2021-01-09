@@ -4,21 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProjetoIdControllerTest {
+class TarefaControllerTest {
 
     @Test
     void postProjeto() {
     }
 
     @Test
-    void patchAdicionaTarefa() {
-    }
-
-    @Test
-    void getPrecoProjetoById() {
-    }
-
-    @Test
-    void getTempoProjetoById() {
+    void patchAdicionaFuncionario() {
     }
 }
