@@ -9,6 +9,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
@@ -21,11 +22,11 @@ class MostrarEstadodoProjetoUseCaseTest {
     @Test
     void mostrarEstadoProjeto() {
         Projeto projeto=new Projeto();
-        projeto.setId(2L);
+
         projeto.setNome("andre");
 
-       when(projetoRepository.findById(projeto.getId())).thenReturn(Optional.of(projeto));
-        assertTrue(mostrarEstadodoProjetoUseCase.mostrarEstadoProjeto(projeto.getId()).isPresent());
+       when(projetoRepository.findById(1L)).thenReturn(Optional.of(projeto));
+        assertEquals(0,mostrarEstadodoProjetoUseCase.mostrarEstadoProjeto(1L));
 
     }
 }

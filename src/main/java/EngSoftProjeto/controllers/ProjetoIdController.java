@@ -39,14 +39,20 @@ public class ProjetoIdController {
 
     @GetMapping("/{id}/valor")
     public ResponseEntity<Float> getPrecoProjetoById(@PathVariable Long id) {
-        Optional<Float> optionalProjeto = projetoServiceFacade.precoProjeto(id);
-        return optionalProjeto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        Optional<Float> optionalProjeto = Optional.ofNullable(projetoServiceFacade.precoProjeto(id));
+        if(optionalProjeto.isPresent()&&optionalProjeto.get().isNaN())
+            return ResponseEntity.badRequest().build();
+
+        return ResponseEntity.ok().build();
     }
 
 
     @GetMapping("/{id}/tempo")
     public ResponseEntity<Integer> getTempoProjetoById(@PathVariable Long id) {
-        Optional<Integer> optionalProjeto = projetoServiceFacade.mostrarTempoProjeto(id);
-        return optionalProjeto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        Optional<Integer> optionalProjeto = Optional.ofNullable(projetoServiceFacade.mostrarTempoProjeto(id));
+        if(optionalProjeto.isPresent()&&optionalProjeto.get()==-1)
+            return ResponseEntity.badRequest().build();
+
+      return ResponseEntity.ok().build();
     }
 }

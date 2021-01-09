@@ -15,9 +15,13 @@ public class MostrarEstadodoProjetoUseCase {
         this.projetoRepository = projetoRepository;
     }
 
-    public Optional<Float> mostrarEstadoProjeto(Long projetoId){
+    public Float mostrarEstadoProjeto(Long projetoId){
 
         Optional<Projeto> optionalProjeto= projetoRepository.findById(projetoId);
-        return optionalProjeto.map(Projeto::calcularPercentagemConclusao);
+        //return optionalProjeto.orElse(Projeto::calcularPercentagemConclusao);
+        if(optionalProjeto.isPresent()){
+            return optionalProjeto.get().calcularPercentagemConclusao();
+        }
+        return Float.NaN;
     }
 }

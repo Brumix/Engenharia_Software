@@ -15,9 +15,9 @@ public class MostrarPrecoProjetoUseCase {
         this.projetoRepository = projetoRepository;
     }
 
-    public Optional<Float> precoProjeto(Long projetoId){
+    public Float precoProjeto(Long projetoId){
 
         Optional<Projeto> optionalProjeto= projetoRepository.findById(projetoId);
-        return optionalProjeto.map(Projeto::calcularPrecoProjeto);
+        return optionalProjeto.map(Projeto::calcularPrecoProjeto).orElse(Float.NaN);
     }
 }

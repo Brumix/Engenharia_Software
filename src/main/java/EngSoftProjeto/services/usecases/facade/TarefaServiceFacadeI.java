@@ -12,5 +12,5 @@ public interface TarefaServiceFacadeI {
 
     Optional<Tarefa> criarTarefa(Tarefa tarefa);
 
-    Optional<Float> tempoExecucaoTarefa(Long tarefaid);
+    Float tempoExecucaoTarefa(Long tarefaid);
 }

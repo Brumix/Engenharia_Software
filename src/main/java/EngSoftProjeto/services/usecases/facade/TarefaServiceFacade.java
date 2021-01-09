@@ -32,7 +32,7 @@ public class TarefaServiceFacade implements TarefaServiceFacadeI {
         return criarTarefaUseCase.criarTarefa(tarefa);
     }
     @Override
-    public Optional<Float>tempoExecucaoTarefa(Long tarefaid){
+    public Float tempoExecucaoTarefa(Long tarefaid){
         return mostrarTempoExecucaoTarefaUseCase.tempoExecucaoTarefa(tarefaid);
     }
 }

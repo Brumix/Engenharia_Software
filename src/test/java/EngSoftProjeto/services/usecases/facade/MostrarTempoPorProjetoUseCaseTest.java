@@ -24,7 +24,7 @@ class MostrarTempoPorProjetoUseCaseTest {
         projeto.setNome("andre");
 
         when(projetoRepository.findById(projeto.getId())).thenReturn(Optional.of(projeto));
-        assertTrue(mostrarTempoPorProjetoUseCase.mostrarTempoProjeto(projeto.getId()).isPresent());
+        assertEquals(0,mostrarTempoPorProjetoUseCase.mostrarTempoProjeto(projeto.getId()));
     }
 
 }

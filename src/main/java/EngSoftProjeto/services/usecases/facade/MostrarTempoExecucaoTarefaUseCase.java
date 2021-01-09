@@ -15,9 +15,12 @@ public class MostrarTempoExecucaoTarefaUseCase {
         this.tarefaRepository = tarefaRepository;
     }
 
-    public Optional<Float> tempoExecucaoTarefa(Long tarefaId){
+    public Float tempoExecucaoTarefa(Long tarefaId){
         Optional<Tarefa>optionalTarefa=tarefaRepository.findById(tarefaId);
 
-        return optionalTarefa.map(Tarefa::getDuracao);
+       if(optionalTarefa.isPresent()){
+           return optionalTarefa.get().getDuracao();
+       }
+       return Float.NaN;
     }
 }

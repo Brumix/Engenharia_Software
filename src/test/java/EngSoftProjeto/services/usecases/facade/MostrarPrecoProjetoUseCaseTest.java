@@ -20,10 +20,10 @@ class MostrarPrecoProjetoUseCaseTest {
     @Test
     void precoProjeto() {
         Projeto projeto=new Projeto();
-        projeto.setId(2L);
+
         projeto.setNome("andre");
 
-        when(projetoRepository.findById(projeto.getId())).thenReturn(Optional.of(projeto));
-        assertTrue(mostrarPrecoProjetoUseCase.precoProjeto(projeto.getId()).isPresent());
+        when(projetoRepository.findById(1L)).thenReturn(Optional.of(projeto));
+        assertEquals(0,mostrarPrecoProjetoUseCase.precoProjeto(1L));
     }
 }
