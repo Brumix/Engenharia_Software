@@ -5,6 +5,7 @@ import EngSoftProjeto.Repositories.ClienteRepository;
 import EngSoftProjeto.Repositories.FuncionarioRepository;
 import EngSoftProjeto.Repositories.ProjetoRepository;
 import EngSoftProjeto.Repositories.TarefaRepository;
+import EngSoftProjeto.services.usecases.facade.ProjetoServiceFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -27,6 +28,9 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
     @Autowired
     private TarefaRepository tarefaRepository;
 
+    @Autowired
+    private ProjetoServiceFacade projetoServiceFacade;
+
 
 
     @Override
@@ -34,20 +38,9 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
        /* Cliente */
 
-        Cliente cl= new Cliente();
-        cl.setNome("Joao B");
+        Cliente cl= Cliente.builder().nome("cliente").build();
 
         clienteRepository.save(cl);
-
-        /* Projeto */
-
-        Projeto p1 = new Projeto();
-        p1.setId(5L);
-        p1.setNome("Projeto ESOF");
-        p1.setCliente(cl);
-
-
-        projetoRepository.save(p1);
 
         /* Funcionario    */
 
@@ -60,13 +53,19 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         /* Tarefa */
 
         Tarefa tf = new Tarefa();
-
-        tf.setId(5L);
         tf.setDuracao(60);
         tf.setConcluida(true);
-        p1.tarefas.add(tf);
-
 
         tarefaRepository.save(tf);
+
+
+        /* Projeto */
+
+        Projeto p1 = new Projeto();
+        p1.setNome("Projeto ESOF");
+        p1.setCliente(cl);
+        projetoRepository.save(p1);
+
+
     }
 }
