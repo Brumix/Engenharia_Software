@@ -14,8 +14,8 @@ public class MostrarTempoPorProjetoUseCase {
         this.projetoRepository = projetoRepository;
     }
 
-    public Optional<Integer> mostrarTempoProjeto(Long projetoId){
+    public Integer mostrarTempoProjeto(Long projetoId){
         Optional<Projeto>optionalProjeto=projetoRepository.findById(projetoId);
-        return optionalProjeto.map(Projeto::duracaoProjeto);
+        return optionalProjeto.map(Projeto::duracaoProjeto).orElse(-1);
     }
 }

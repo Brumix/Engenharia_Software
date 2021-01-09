@@ -49,15 +49,13 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
         projetoRepository.save(p1);
 
-        /* Empregado    */
+        /* Funcionario    */
 
-        Funcionario emp = new Funcionario();
-        emp.setNome("Andre B");
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome("Andre B");
 
 
-
-        funcionarioRepository.save(emp);
-
+        funcionarioRepository.save(funcionario);
 
         /* Tarefa */
 
