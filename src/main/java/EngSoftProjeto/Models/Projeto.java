@@ -1,8 +1,6 @@
 package EngSoftProjeto.Models;
 
-import EngSoftProjeto.Models.Cliente;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,58 +9,55 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Projeto {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
 
-  private String nome;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @EqualsAndHashCode.Include
+    private String nome;
 
-  private int duracao;
+    @ManyToOne
+    private Cliente cliente;
 
-  private Integer precoFinal;
-
-  private float percentagemDeConclusao;
-
-  @ManyToOne
-  private Cliente cliente;
-
-  @OneToMany(mappedBy = "projeto")
-  public List<Tarefa> tarefas =new ArrayList<Tarefa>();
+    @OneToMany(mappedBy = "projeto",cascade=CascadeType.ALL )
+    public List<Tarefa> tarefas = new ArrayList<>();
 
 
-  public float calcularPrecoProjeto() {
-    float custo = 0;
-    for (Tarefa tarefa : tarefas) {
-      custo += tarefa.getPreco();
+    public float calcularPrecoProjeto() {
+        float custo = 0;
+        for (Tarefa tarefa : tarefas) {
+            custo += tarefa.calculaPreco();
+        }
+        return custo;
     }
-    return custo;
-  }
 
-  public int duracaoProjeto() {
-    int custoTemporal = 0;
-    for (Tarefa tarefa : tarefas) {
-      custoTemporal += tarefa.getDuracao();
+    public int duracaoProjeto() {
+        int custoTemporal = 0;
+        for (Tarefa tarefa : tarefas) {
+            custoTemporal += tarefa.getDuracao();
+        }
+        return custoTemporal;
     }
-    return custoTemporal;
-  }
 
-  public float calcularPercentagemConclusao() {
-    float count = 0;
-    for (Tarefa tarefa:tarefas) {
-      if(tarefa.getConcluida())count++;
+    public float calcularPercentagemConclusao() {
+        float count = 0;
+        for (Tarefa tarefa : tarefas) {
+            if (tarefa.getConcluida()) count++;
+        }
+        return (count / tarefas.size()) * 100;
     }
-    return (count/tarefas.size())*100;
-  }
 
-  public void atualizarTarefa(Tarefa tarefa){
-    for (Tarefa tar: tarefas) {
-      if(tar.getNome().equals(tarefa.getNome())) tar.setConcluida(true);
+    public void atualizarTarefa(Tarefa tarefa) {
+        for (Tarefa tar : tarefas) {
+            if (tar.getNome().equals(tarefa.getNome())) tar.setConcluida(true);
+        }
     }
-  }
 
-  public void adicionaCliente(Cliente cliente){
-    this.setCliente(cliente);
-  }
+
 }
