@@ -2471,3 +2471,27 @@ java.lang.NullPointerException: null
 2021-01-09 01:12:36.597  WARN 16324 --- [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
 2021-01-09 01:12:36.598  INFO 16324 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-01-09 01:12:36.601  INFO 16324 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-10 01:10:01.257  INFO 12056 --- [main] e.controllers.ProjetoIdControllerTest    : Starting ProjetoIdControllerTest using Java 14.0.1 on DESKTOP-CM1J611 with PID 12056 (started by Bruno Miguel in C:\Users\Bruno Miguel\IdeaProjects\Engenharia_Software)
+2021-01-10 01:10:01.258 DEBUG 12056 --- [main] e.controllers.ProjetoIdControllerTest    : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 01:10:01.259  INFO 12056 --- [main] e.controllers.ProjetoIdControllerTest    : No active profile set, falling back to default profiles: default
+2021-01-10 01:10:03.169  INFO 12056 --- [main] e.controllers.ProjetoIdControllerTest    : Started ProjetoIdControllerTest in 1.955 seconds (JVM running for 6.005)
+2021-01-10 01:10:04.293  INFO 12056 --- [main] e.controllers.FuncionarioControllerTest  : Starting FuncionarioControllerTest using Java 14.0.1 on DESKTOP-CM1J611 with PID 12056 (started by Bruno Miguel in C:\Users\Bruno Miguel\IdeaProjects\Engenharia_Software)
+2021-01-10 01:10:04.294 DEBUG 12056 --- [main] e.controllers.FuncionarioControllerTest  : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 01:10:04.295  INFO 12056 --- [main] e.controllers.FuncionarioControllerTest  : No active profile set, falling back to default profiles: default
+2021-01-10 01:10:05.118  INFO 12056 --- [main] e.controllers.FuncionarioControllerTest  : Started FuncionarioControllerTest in 0.86 seconds (JVM running for 7.954)
+2021-01-10 01:10:05.367  INFO 12056 --- [main] e.controllers.TarefaControllerTest       : Starting TarefaControllerTest using Java 14.0.1 on DESKTOP-CM1J611 with PID 12056 (started by Bruno Miguel in C:\Users\Bruno Miguel\IdeaProjects\Engenharia_Software)
+2021-01-10 01:10:05.368 DEBUG 12056 --- [main] e.controllers.TarefaControllerTest       : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 01:10:05.369  INFO 12056 --- [main] e.controllers.TarefaControllerTest       : No active profile set, falling back to default profiles: default
+2021-01-10 01:10:06.130  INFO 12056 --- [main] e.controllers.TarefaControllerTest       : Started TarefaControllerTest in 0.797 seconds (JVM running for 8.966)
+2021-01-10 01:53:53.607  INFO 10608 --- [main] e.controllers.ProjetoIdControllerTest    : Starting ProjetoIdControllerTest using Java 14.0.1 on DESKTOP-CM1J611 with PID 10608 (started by Bruno Miguel in C:\Users\Bruno Miguel\IdeaProjects\Engenharia_Software)
+2021-01-10 01:53:53.608 DEBUG 10608 --- [main] e.controllers.ProjetoIdControllerTest    : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 01:53:53.609  INFO 10608 --- [main] e.controllers.ProjetoIdControllerTest    : No active profile set, falling back to default profiles: default
+2021-01-10 01:53:55.523  INFO 10608 --- [main] e.controllers.ProjetoIdControllerTest    : Started ProjetoIdControllerTest in 1.958 seconds (JVM running for 5.753)
+2021-01-10 01:53:57.388  INFO 10608 --- [main] e.controllers.FuncionarioControllerTest  : Starting FuncionarioControllerTest using Java 14.0.1 on DESKTOP-CM1J611 with PID 10608 (started by Bruno Miguel in C:\Users\Bruno Miguel\IdeaProjects\Engenharia_Software)
+2021-01-10 01:53:57.389 DEBUG 10608 --- [main] e.controllers.FuncionarioControllerTest  : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 01:53:57.390  INFO 10608 --- [main] e.controllers.FuncionarioControllerTest  : No active profile set, falling back to default profiles: default
+2021-01-10 01:53:58.267  INFO 10608 --- [main] e.controllers.FuncionarioControllerTest  : Started FuncionarioControllerTest in 0.914 seconds (JVM running for 8.498)
+2021-01-10 01:53:58.500  INFO 10608 --- [main] e.controllers.TarefaControllerTest       : Starting TarefaControllerTest using Java 14.0.1 on DESKTOP-CM1J611 with PID 10608 (started by Bruno Miguel in C:\Users\Bruno Miguel\IdeaProjects\Engenharia_Software)
+2021-01-10 01:53:58.500 DEBUG 10608 --- [main] e.controllers.TarefaControllerTest       : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 01:53:58.501  INFO 10608 --- [main] e.controllers.TarefaControllerTest       : No active profile set, falling back to default profiles: default
+2021-01-10 01:53:59.421  INFO 10608 --- [main] e.controllers.TarefaControllerTest       : Started TarefaControllerTest in 0.946 seconds (JVM running for 9.652)
