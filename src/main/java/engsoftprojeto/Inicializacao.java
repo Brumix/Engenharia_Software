@@ -1,6 +1,10 @@
 package engsoftprojeto;
 
-import engsoftprojeto.models.*;
+
+import engsoftprojeto.models.Cliente;
+import engsoftprojeto.models.Funcionario;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
 import engsoftprojeto.repositories.ClienteRepository;
 import engsoftprojeto.repositories.FuncionarioRepository;
 import engsoftprojeto.repositories.ProjetoRepository;
