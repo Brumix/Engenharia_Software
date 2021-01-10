@@ -32,7 +32,6 @@ public class AdicionarFuncionarioTarefaUseCase {
             if (tarefa.getFuncionario()==null || !tarefa.getFuncionario().equals(funcionario)) {
                 tarefa.setFuncionario(funcionario1);
                 funcionario1.tarefas.add(tarefa);
-                funcionarioRepository.save(funcionario);
                 tarefaRepository.save(tarefa);
                 return Optional.of(tarefa);
             }
