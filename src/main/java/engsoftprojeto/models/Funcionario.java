@@ -2,7 +2,13 @@ package engsoftprojeto.models;
 
 import lombok.*;
 
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Transient;
+import javax.persistence.OneToMany;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
