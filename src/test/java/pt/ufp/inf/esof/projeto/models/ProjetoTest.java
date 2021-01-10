@@ -1,6 +1,5 @@
 package pt.ufp.inf.esof.projeto.models;
 
-
 import EngSoftProjeto.Models.*;
 import org.junit.jupiter.api.Test;
 
