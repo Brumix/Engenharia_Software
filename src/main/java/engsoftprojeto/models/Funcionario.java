@@ -38,7 +38,7 @@ public class Funcionario {
 
     private String Password;
 
-    @Transient
+    //@Transient
     private Cargo cargo;
 
 

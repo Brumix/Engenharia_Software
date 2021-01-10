@@ -1,7 +1,9 @@
 package engsoftprojeto.services.usecases.facade;
 
 import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
 import engsoftprojeto.repositories.ProjetoRepository;
+import engsoftprojeto.repositories.TarefaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,6 +14,7 @@ public class MostrarTempoPorProjetoUseCase {
 
     public MostrarTempoPorProjetoUseCase(ProjetoRepository projetoRepository) {
         this.projetoRepository = projetoRepository;
+
     }
 
     public Optional<Integer> mostrarTempoProjeto(Long projetoId){

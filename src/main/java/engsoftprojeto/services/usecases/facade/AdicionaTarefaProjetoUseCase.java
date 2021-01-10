@@ -26,10 +26,10 @@ public class AdicionaTarefaProjetoUseCase {
         if (optionalProjeto.isPresent()) {
             Projeto projeto = optionalProjeto.get();
             if (projeto.tarefas.isEmpty() || !projeto.tarefas.contains(tarefa)) {
-                projeto.tarefas.add(tarefa);
                 tarefa.setProjeto(projeto);
+                projeto.tarefas.add(tarefa);
                 projetoRepository.save(projeto);
-                tarefaRepository.save(tarefa);
+               // tarefaRepository.save(tarefa);
                 return Optional.of(projeto);
             }
         }

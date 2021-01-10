@@ -1,10 +1,7 @@
 package engsoftprojeto;
 
 
-import engsoftprojeto.models.Cliente;
-import engsoftprojeto.models.Funcionario;
-import engsoftprojeto.models.Projeto;
-import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.models.*;
 import engsoftprojeto.repositories.ClienteRepository;
 import engsoftprojeto.repositories.FuncionarioRepository;
 import engsoftprojeto.repositories.ProjetoRepository;
@@ -13,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-
 
 
 @Component
@@ -32,14 +28,13 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
     private TarefaRepository tarefaRepository;
 
 
-
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
-       /* Cliente */
+        /* Cliente */
 
-        Cliente cl= new Cliente();
-        cl.setNome("Joao B");
+        Cliente cl = new Cliente();
+        cl.setNome("Bruno");
 
         clienteRepository.save(cl);
 
@@ -50,14 +45,14 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         p1.setNome("Projeto ESOF");
         p1.setCliente(cl);
 
-        projetoRepository.save(p1);
+        // projetoRepository.save(p1);
 
         /* Empregado    */
 
         Funcionario emp = new Funcionario();
         emp.setNome("Andre B");
+        emp.setCargo(Cargo.DEV_JR);
 
-        funcionarioRepository.save(emp);
 
 
         /* Tarefa */
@@ -66,8 +61,12 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         tf.setId(5L);
         tf.setDuracao(60);
         tf.setConcluida(true);
-        p1.tarefas.add(tf);
+        tf.setFuncionario(emp);
 
+        emp.tarefas.add(tf);
+
+        funcionarioRepository.save(emp);
+        projetoRepository.save(p1);
         tarefaRepository.save(tf);
     }
 }
