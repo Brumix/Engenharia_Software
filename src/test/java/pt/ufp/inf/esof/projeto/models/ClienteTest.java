@@ -1,6 +1,11 @@
 package pt.ufp.inf.esof.projeto.models;
 
-import engsoftprojeto.models.*;
+
+import engsoftprojeto.models.Cliente;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
+import engsoftprojeto.models.Funcionario;
+import engsoftprojeto.models.Cargo;
 import org.junit.jupiter.api.Test;
 
 
