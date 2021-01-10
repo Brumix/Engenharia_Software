@@ -1,9 +1,9 @@
 package pt.ufp.inf.esof.projeto.models;
 
-import EngSoftProjeto.Models.Cargo;
-import EngSoftProjeto.Models.Funcionario;
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
+import engsoftprojeto.models.Cargo;
+import engsoftprojeto.models.Funcionario;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
