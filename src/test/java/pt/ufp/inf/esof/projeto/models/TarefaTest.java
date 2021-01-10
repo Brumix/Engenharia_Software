@@ -1,6 +1,6 @@
 package pt.ufp.inf.esof.projeto.models;
 
-import EngSoftProjeto.Models.Tarefa;
+import engsoftprojeto.models.Tarefa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

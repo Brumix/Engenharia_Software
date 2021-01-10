@@ -1,0 +1,12 @@
+2021-01-10 19:54:47.557  INFO 13944 --- [main] e.controllers.ProjetoIdControllerTest    : Starting ProjetoIdControllerTest using Java 14.0.2 on Andre with PID 13944 (started by andre in D:\faculdade\engenharia de software\aqui bruno\Engenharia_Software)
+2021-01-10 19:54:47.570 DEBUG 13944 --- [main] e.controllers.ProjetoIdControllerTest    : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 19:54:47.578  INFO 13944 --- [main] e.controllers.ProjetoIdControllerTest    : No active profile set, falling back to default profiles: default
+2021-01-10 19:54:49.997  INFO 13944 --- [main] e.controllers.ProjetoIdControllerTest    : Started ProjetoIdControllerTest in 2.479 seconds (JVM running for 8.014)
+2021-01-10 19:54:51.711  INFO 13944 --- [main] e.controllers.FuncionarioControllerTest  : Starting FuncionarioControllerTest using Java 14.0.2 on Andre with PID 13944 (started by andre in D:\faculdade\engenharia de software\aqui bruno\Engenharia_Software)
+2021-01-10 19:54:51.724 DEBUG 13944 --- [main] e.controllers.FuncionarioControllerTest  : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 19:54:51.726  INFO 13944 --- [main] e.controllers.FuncionarioControllerTest  : No active profile set, falling back to default profiles: default
+2021-01-10 19:54:52.570  INFO 13944 --- [main] e.controllers.FuncionarioControllerTest  : Started FuncionarioControllerTest in 0.921 seconds (JVM running for 10.587)
+2021-01-10 19:54:52.894  INFO 13944 --- [main] e.controllers.TarefaControllerTest       : Starting TarefaControllerTest using Java 14.0.2 on Andre with PID 13944 (started by andre in D:\faculdade\engenharia de software\aqui bruno\Engenharia_Software)
+2021-01-10 19:54:52.895 DEBUG 13944 --- [main] e.controllers.TarefaControllerTest       : Running with Spring Boot v2.4.0, Spring v5.3.1
+2021-01-10 19:54:52.900  INFO 13944 --- [main] e.controllers.TarefaControllerTest       : No active profile set, falling back to default profiles: default
+2021-01-10 19:54:54.146  INFO 13944 --- [main] e.controllers.TarefaControllerTest       : Started TarefaControllerTest in 1.286 seconds (JVM running for 12.164)

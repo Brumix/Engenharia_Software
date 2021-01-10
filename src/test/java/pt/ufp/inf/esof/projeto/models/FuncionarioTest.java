@@ -1,19 +1,19 @@
 package pt.ufp.inf.esof.projeto.models;
 
-import EngSoftProjeto.Models.Cargo;
-import EngSoftProjeto.Models.Funcionario;
-import EngSoftProjeto.Models.Projeto;
-import EngSoftProjeto.Models.Tarefa;
+import engsoftprojeto.models.Cargo;
+import engsoftprojeto.models.Funcionario;
+import engsoftprojeto.models.Projeto;
+import engsoftprojeto.models.Tarefa;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class FuncionarioTest {
 
 
     @Test
     void getIdTest() {
-
         Funcionario funcionario = new Funcionario();
         funcionario.setId(1L);
         assertEquals(1L, funcionario.getId());
@@ -83,7 +83,7 @@ class FuncionarioTest {
     }
 
     @Test
-    void getValorHoraCargoDEV_JR() {
+    void getValorHoraCargoDEVJR() {
         Funcionario funcionario = new Funcionario();
         funcionario.setNome("andre");
         funcionario.setCargo(Cargo.DEV_JR);
@@ -93,7 +93,7 @@ class FuncionarioTest {
     }
 
     @Test
-    void getValorHoraCargoDEV_SR() {
+    void getValorHoraCargoDEVSR() {
         Funcionario funcionario = new Funcionario();
         funcionario.setNome("andre");
         funcionario.setCargo(Cargo.DEV_SR);
@@ -103,7 +103,7 @@ class FuncionarioTest {
     }
 
     @Test
-    void getValorHoraCargoAN_JR() {
+    void getValorHoraCargoANJR() {
         Funcionario funcionario = new Funcionario();
         funcionario.setNome("andre");
         funcionario.setCargo(Cargo.AN_JR);
@@ -121,7 +121,7 @@ class FuncionarioTest {
     }
 
     @Test
-    void getValorHoraCargoAN_SR() {
+    void getValorHoraCargoANSR() {
         Funcionario funcionario = new Funcionario();
         funcionario.setNome("andre");
         funcionario.setCargo(Cargo.AN_SR);
