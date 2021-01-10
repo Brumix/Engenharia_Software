@@ -9,8 +9,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 @SpringBootTest(classes=MostrarTempoPorProjetoUseCase.class)
 class MostrarTempoPorProjetoUseCaseTest {
