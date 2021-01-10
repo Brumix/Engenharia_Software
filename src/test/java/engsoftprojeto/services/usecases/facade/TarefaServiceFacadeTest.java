@@ -12,6 +12,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
+
 @SpringBootTest(classes = TarefaServiceFacade.class)
 class TarefaServiceFacadeTest {
     @Autowired
